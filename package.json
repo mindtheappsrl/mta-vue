@@ -1,8 +1,8 @@
 {
-  "name": "@mindtheapp/nvmvue",
+  "name": "@mindtheapp/npmvue",
   "version": "0.1.0",
   "private": true,
-  "main": "./dist/mtaNvmvue.common.js",
+  "main": "./dist/mtaNpmvue.common.js",
   "files": [
     "dist/*",
     "src/*",
@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name mtaNvmvue ./src/index.js",
+    "build": "vue-cli-service build --target lib --name mtaNpmvue ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
