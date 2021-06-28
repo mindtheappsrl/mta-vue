@@ -346,9 +346,7 @@ var component = normalizeComponent(
 // CONCATENATED MODULE: ./src/main.js
 
 /* harmony default export */ var main = ({
-  components: {
-    MtaScheduler: MtaScheduler
-  }
+  MtaScheduler: MtaScheduler
 });
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 
