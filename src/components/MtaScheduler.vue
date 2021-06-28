@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-app>
     <v-toolbar
       id="toolbar"
       dense
@@ -120,7 +120,7 @@
         </v-tooltip>
       </template>
     </v-calendar>
-  </div>
+  </v-app>
 </template>
 <script>
 import moment from "moment";
