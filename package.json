@@ -11,9 +11,8 @@
     "*.js"
   ],
   "scripts": {
-    "build-bundle": "vue-cli-service build --target lib --name mtaScheduler ./src/main.js",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name mtaScheduler ./src/main.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
