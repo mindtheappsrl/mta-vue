@@ -123,6 +123,7 @@
   </div>
 </template>
 <script>
+import 'vuetify/dist/vuetify.min.css'
 import moment from "moment";
 export default {
   props: {
