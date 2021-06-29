@@ -174,7 +174,7 @@ export default {
     value: moment().format("YYYY-MM-DD"),
     categories: [],
     eventsData: [],
-    proposalData: {},
+    proposalData: null,
     localeValue: "it",
     typeValue: "category",
     modeValue: "stack",
