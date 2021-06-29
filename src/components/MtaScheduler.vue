@@ -7,7 +7,7 @@
       class="grey lighten-4"
       :class="{
         'mr-4':
-          (categories.length > 5 && type === 'category') || type === 'week',
+          (categories.length > 5 && typeValue === 'category') || typeValue === 'week',
       }"
     >
       <v-btn rounded icon @click="prev()">
@@ -33,7 +33,7 @@
         <v-btn value="month"> Mese </v-btn>
       </v-btn-toggle>
       <v-switch
-        v-if="type != 'month'"
+        v-if="typeValue != 'month'"
         v-model="showFullDay"
         inset
         class="ml-5 mt-5"
@@ -43,7 +43,7 @@
       >
       </v-switch>
       <v-btn
-        v-if="type == 'category' && !proposalData && extraBtnData.visible"
+        v-if="typeValue == 'category' && !proposalData && extraBtnData.visible"
         elevation="0"
         rounded
         class="ml-5"
@@ -181,26 +181,7 @@ export default {
     firstTimeValue: "05:00",
     intervalCountValue: 60,
     extraBtnData: {},
-    showFullDay: false,
-    // colors: [
-    //   "blue",
-    //   "indigo",
-    //   "deep-purple",
-    //   "cyan",
-    //   "green",
-    //   "orange",
-    //   "grey darken-1",
-    // ],
-    // names: [
-    //   "Meeting",
-    //   "Holiday",
-    //   "PTO",
-    //   "Travel",
-    //   "Event",
-    //   "Birthday",
-    //   "Conference",
-    //   "Party",
-    // ],
+    showFullDay: false
   }),
   mounted() {
     moment.locale(this.locale);
@@ -239,38 +220,7 @@ export default {
     },
     getEvents({ start, end }) {
       this.$parent.$emit("CALENDAR_CHANGED", { start, end, date: this.value, showFullDay: this.showFullDay });
-      //   const events = [];
-
-      //   const min = new Date(`${start.date}T00:00:00`);
-      //   const max = new Date(`${end.date}T23:59:59`);
-      //   const days = (max.getTime() - min.getTime()) / 86400000;
-      //   const eventCount = this.rnd(days, days + 150);
-
-      //   for (let i = 0; i < eventCount; i++) {
-      //     const allDay = this.rnd(0, 3) === 0;
-      //     const firstTimestamp = this.rnd(min.getTime(), max.getTime());
-      //     const first = new Date(firstTimestamp - (firstTimestamp % 900000));
-      //     const secondTimestamp = this.rnd(2, allDay ? 288 : 8) * 900000;
-      //     const second = new Date(first.getTime() + secondTimestamp);
-
-      //     events.push({
-      //         id: this.rnd(0, 999),
-      //         title: this.names[this.rnd(0, this.names.length - 1)],
-      //         subtitle: this.names[this.rnd(0, this.names.length - 1)],
-      //         category: this.categories[this.rnd(0, this.categories.length - 1)],
-      //         start: first,
-      //         end: second,
-      //         color: this.colors[this.rnd(0, this.colors.length - 1)],
-      //         isChecked: true,
-      //         timed: allDay,
-      //         extra: ''
-      //     });
-      //   }
-      //   this.events = events;
     },
-    // rnd(a, b) {
-    //   return Math.floor((b - a + 1) * Math.random()) + a;
-    // },
   },
   watch: {
     events: {
