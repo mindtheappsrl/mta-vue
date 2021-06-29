@@ -1,4 +1,8 @@
-// import Vue from 'vue'
+import Vue from 'vue'
+
+import Vuetify from 'vuetify'
+Vue.use(Vuetify)
+
 // import vuetify from '@/plugins/vuetify'
 // import App from "./App.vue"
 
@@ -8,11 +12,6 @@
 //   vuetify,
 //   render: h => h(App),
 // }).$mount('#app')
-
-import Vue from 'vue'
-import Vuetify from 'vuetify'
-
-Vue.use(Vuetify)
 
 import MtaScheduler from "./components/MtaScheduler.vue"; 
  
