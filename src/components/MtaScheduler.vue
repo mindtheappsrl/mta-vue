@@ -74,6 +74,7 @@
       :weekdays="[1, 2, 3, 4, 5, 6, 0]"
       @change="getEvents"
       @click:event="showDetails"
+      @click:date="goToDate"
     >
       <template #event="{ event }">
         <v-tooltip top>
@@ -203,6 +204,13 @@ export default {
         this.$emit("eventDetails", event);
       }
       if (nativeEvent) nativeEvent.stopPropagation()
+    },
+    goToDate(date) {
+      console.log(date)
+      if (this.typeValue !== 'category') {
+        this.typeValue = 'category'
+        this.value = date
+      }
     },
     prev() {
       this.$refs.calendar.prev();
