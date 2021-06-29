@@ -215,7 +215,7 @@ export default {
     },
     getEvents({ start, end }) {
       if (this.$refs && this.$refs.calendar) {
-        this.$parent.$emit("CALENDAR_CHANGED", { start, end, date: this.value, showFullDay: this.showFullDay });
+        this.$emit("CALENDAR_CHANGED", { start, end, date: this.value, showFullDay: this.showFullDay });
       }
     },
   },
