@@ -55,6 +55,7 @@
       </v-btn>
     </v-toolbar>
     <v-calendar
+      v-on="$listeners"
       ref="calendar"
       v-model="value"
       :locale="localeValue"
@@ -126,6 +127,7 @@
 import moment from "moment";
 import EventModel from '../models/event.model'
 export default {
+  inheritAttrs: false,
   props: {
     events: {
       type: Array,
@@ -310,22 +312,3 @@ export default {
   },
 };
 </script>
-<style>
-.v-tooltip__content--fixed {
-    position: fixed;
-}
-.v-tooltip__content {
-    background: rgba(97, 97, 97, 0.9);
-    color: #FFFFFF;
-    border-radius: 4px;
-    font-size: 14px;
-    line-height: 22px;
-    display: inline-block;
-    padding: 5px 16px;
-    position: absolute;
-    text-transform: none;
-    text-transform: initial;
-    width: auto;
-    pointer-events: none;
-}
-</style>
