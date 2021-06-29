@@ -1,16 +1,16 @@
 <template>
   <v-app>
-    <MtaScheduler />
+    <!-- <MtaScheduler /> -->
   </v-app>
 </template>
 
 <script>
-import MtaScheduler from './components/MtaScheduler.vue'
+//import MtaScheduler from './components/MtaScheduler.vue'
 
 export default {
   name: 'App',
-  components: {
-    MtaScheduler
-  }
+  // components: {
+  //   MtaScheduler
+  // }
 }
 </script>
