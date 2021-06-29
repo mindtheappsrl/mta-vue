@@ -1,5 +1,5 @@
-<template>
-  <div>
+<template>  
+  <div ref="schedulerContainer" style="position:relative">
     <v-toolbar
       id="toolbar"
       dense
@@ -188,6 +188,17 @@ export default {
     moment.locale(this.locale);
   },
   methods: {
+    setCalWidth() {
+      if (
+        (this.categories.length > 5 &&
+          this.typeValue === 'category') ||
+        this.typeValue === 'week'
+      ) {
+        this.$refs.schedulerContainer.style.width = '2500px'
+      } else {
+        this.$refs.schedulerContainer.style.width = ''
+      }
+    },
     setCalendarViewInterval() {
       if (this.$refs && this.$refs.calendar) {
         if (this.showFullDay) {
@@ -223,6 +234,7 @@ export default {
     getEvents({ start, end }) {
       if (this.$refs && this.$refs.calendar) {
         this.$emit("rangeChanged", { start, end, date: this.value, showFullDay: this.showFullDay });
+        this.setCalWidth();
       }
     },
   },
@@ -233,6 +245,7 @@ export default {
             this.eventsData = newVal.map((e) => new EventModel(e));
             const list = newVal.map((e) => e.category);
             this.categories = list.filter((v, i) => list.indexOf(v) == i);
+            this.setCalWidth();
           }
         },
     },
