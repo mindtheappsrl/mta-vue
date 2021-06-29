@@ -196,7 +196,6 @@ export default {
           this.firstTimeValue = "05:00";
           this.intervalCountValue = 60;
         }
-        //this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
       }
     },
     showDetails({ nativeEvent, event }) {
@@ -265,13 +264,6 @@ export default {
             this.extraBtnData = newVal;   
         }
     },
-    // typeValue: {
-    //     handler() {
-    //       if (this.$refs && this.$refs.calendar) {
-    //         this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
-    //       }
-    //     }
-    // },
   },
 };
 </script>
