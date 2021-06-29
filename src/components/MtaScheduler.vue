@@ -10,13 +10,13 @@
           (categories.length > 5 && type === 'category') || type === 'week',
       }"
     >
-      <v-btn rounded icon @click="$refs.calendar.prev()">
+      <v-btn rounded icon @click="prev()">
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
       <h3 class="text--secondary text-center" style="min-width: 210px">
         {{ moment(value).format("dddd DD MMMM YYYY") }}
       </h3>
-      <v-btn rounded icon @click="$refs.calendar.next()">
+      <v-btn rounded icon @click="next()">
         <v-icon>mdi-chevron-right</v-icon>
       </v-btn>
       <v-btn-toggle
@@ -212,11 +212,19 @@ export default {
         this.intervalCountValue = 60;
       }
     },
+    prev() {
+      this.$refs.calendar.prev();
+      this.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
+    },
+    next() {
+      this.$refs.calendar.next();
+      this.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
+    },
     getEventColor(event) {
       return event.color;
     },
     getEvents({ start, end }) {
-      this.$emit("CALENDAR_CHANGED", { start, end });
+      this.$emit("CALENDAR_CHANGED", { start, end, date: this.value, showFullDay: this.showFullDay });
       //   const events = [];
 
       //   const min = new Date(`${start.date}T00:00:00`);
@@ -292,6 +300,11 @@ export default {
     extraBtn: {
         handler(newVal) {
             this.extraBtnData = newVal;   
+        }
+    },
+    typeValue: {
+        handler() {
+          this.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
         }
     },
   },
