@@ -269,9 +269,11 @@ export default {
   watch: {
     events: {
         handler(newVal) {
+          if(newVal && newVal.length){
             this.eventsData = newVal.map((e) => new EventModel(e));
             const list = newVal.map((e) => e.category);
             this.categories = list.filter((v, i) => list.indexOf(v) == i);
+          }
         },
     },
     proposal: {
