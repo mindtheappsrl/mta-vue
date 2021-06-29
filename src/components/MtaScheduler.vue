@@ -124,6 +124,7 @@
 </template>
 <script>
 import moment from "moment";
+import EventModel from '../models/event.model'
 export default {
   props: {
     events: {
@@ -255,6 +256,7 @@ export default {
             this.eventsData = newVal;    
             const list = newVal.map((e) => e.category);
             this.categories = list.filter((v, i) => list.indexOf(v) == i);
+            this.categories = this.categories.map((c) => new EventModel(c));
         },
     },
     proposal: {

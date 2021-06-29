@@ -68040,7 +68040,7 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
 var vuetify = __webpack_require__("ce5b");
 var vuetify_default = /*#__PURE__*/__webpack_require__.n(vuetify);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5668dbb3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=6e09ab21&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5668dbb3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=6fcf1d43&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('v-toolbar',{staticClass:"grey lighten-4",class:{
       'mr-4':
         (_vm.categories.length > 5 && _vm.type === 'category') || _vm.type === 'week',
@@ -68053,7 +68053,7 @@ return [_c('div',_vm._g(_vm._b({},'div',attrs,false),on),[_c('div',{staticClass:
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=6e09ab21&
+// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=6fcf1d43&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("a9e3");
@@ -68068,6 +68068,19 @@ var es_array_filter = __webpack_require__("4de4");
 var moment = __webpack_require__("c1df");
 var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
 
+// CONCATENATED MODULE: ./src/models/event.model.js
+/* harmony default export */ var event_model = (function (event) {
+  this.id = event ? event.id : null;
+  this.title = event ? event.title : null;
+  this.subtitle = event ? event.subtitle : null;
+  this.start = event ? event.start : null;
+  this.end = event ? event.end : null;
+  this.color = event ? event.color : null;
+  this.isChecked = event ? event.isChecked : false;
+  this.extra = event ? event.extra : null;
+  this.category = event ? event.category : null;
+  this.timed = event ? event.timed : true;
+});
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=script&lang=js&
 
 
@@ -68196,6 +68209,7 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
 //
 //
 //
+
 
 /* harmony default export */ var MtaSchedulervue_type_script_lang_js_ = ({
   props: {
@@ -68348,6 +68362,9 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
         });
         this.categories = list.filter(function (v, i) {
           return list.indexOf(v) == i;
+        });
+        this.categories = this.categories.map(function (c) {
+          return new event_model(c);
         });
       }
     },
