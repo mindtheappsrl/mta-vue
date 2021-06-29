@@ -1,17 +1,17 @@
 {
-  "name": "npmvue",
+  "name": "mta-vue",
   "version": "0.1.5",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/mindtheappsrl/npmvue.git"
+    "url": "https://github.com/mindtheappsrl/mta-vue.git"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name npmvue src/main.js",
+    "build": "vue-cli-service build --target lib --name mta-vue src/main.js",
     "lint": "vue-cli-service lint"
   },
-  "main": "dist/npmvue.common.js",
+  "main": "dist/mta-vue.common.js",
   "dependencies": {
     "core-js": "^3.6.5",
     "moment": "^2.29.1",
