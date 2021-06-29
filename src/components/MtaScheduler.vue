@@ -216,8 +216,9 @@ export default {
       }
       this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
     },
-    showDetails({ data }) {
-      this.$parent.$emit("EVENT_DETAILS", { data });
+    showDetails({ nativeEvent, event }) {
+      this.$parent.$emit("EVENT_DETAILS", { event });
+      if (nativeEvent) nativeEvent.stopPropagation()
     },
     prev() {
       this.$refs.calendar.prev();
