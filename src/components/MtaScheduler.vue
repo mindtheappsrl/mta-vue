@@ -97,8 +97,8 @@
               </div>
             </div>
           </template>
-          <span>{{ event.title }}</span>
-            <!-- <div>
+          <span>
+            <div>
               <strong>{{ event.title }}</strong>
               <br />
               <span>
@@ -116,7 +116,7 @@
             >
               <v-icon color="white">mdi-account-check</v-icon>
             </div>
-          </span> -->
+          </span>
         </v-tooltip>
       </template>
     </v-calendar>
