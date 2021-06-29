@@ -91,9 +91,9 @@
               </div>
               <div
                 v-if="event.isChecked"
-                style="position: absolute; top: 3px; right: 3px"
+                style="position: absolute; top: -1px; right: 3px"
               >
-                <v-icon color="white">mdi-account-check</v-icon>
+                <v-icon color="white">mdi-check</v-icon>
               </div>
             </div>
           </template>
@@ -114,7 +114,7 @@
               v-if="event.isChecked"
               style="position: absolute; top: 3px; right: 3px"
             >
-              <v-icon color="white">mdi-account-check</v-icon>
+              <v-icon color="white">mdi-check</v-icon>
             </div>
           </span>
         </v-tooltip>
@@ -123,7 +123,6 @@
   </div>
 </template>
 <script>
-import 'vuetify/dist/vuetify.min.css'
 import moment from "moment";
 export default {
   props: {
@@ -296,3 +295,22 @@ export default {
   },
 };
 </script>
+<style>
+.v-tooltip__content--fixed {
+    position: fixed;
+}
+.v-tooltip__content {
+    background: rgba(97, 97, 97, 0.9);
+    color: #FFFFFF;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    display: inline-block;
+    padding: 5px 16px;
+    position: absolute;
+    text-transform: none;
+    text-transform: initial;
+    width: auto;
+    pointer-events: none;
+}
+</style>
