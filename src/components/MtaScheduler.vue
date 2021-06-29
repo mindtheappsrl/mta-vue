@@ -206,10 +206,9 @@ export default {
       if (nativeEvent) nativeEvent.stopPropagation()
     },
     goToDate(date) {
-      console.log(date)
       if (this.typeValue !== 'category') {
         this.typeValue = 'category'
-        this.value = date
+        this.value = date.date
       }
     },
     prev() {
