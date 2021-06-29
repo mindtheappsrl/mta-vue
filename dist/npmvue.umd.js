@@ -68073,9 +68073,7 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
   this.timed = event ? event.timed : true;
 
   for (var prop in event) {
-    if (Object.prototype.hasOwnProperty.call(event, prop)) {
-      this[prop] = prop;
-    }
+    Object.prototype.hasOwnProperty.call(event, prop) ? this[prop] = event[prop] : null;
   }
 });
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=script&lang=js&
