@@ -68022,11 +68022,11 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
 var vuetify = __webpack_require__("ce5b");
 var vuetify_default = /*#__PURE__*/__webpack_require__.n(vuetify);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5668dbb3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=a1c863f6&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5668dbb3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=662f6052&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('v-toolbar',{staticClass:"grey lighten-4",class:{
       'mr-4':
         (_vm.categories.length > 5 && _vm.typeValue === 'category') || _vm.typeValue === 'week',
-    },attrs:{"id":"toolbar","dense":"","flat":""}},[_c('v-btn',{attrs:{"rounded":"","icon":""},on:{"click":function($event){return _vm.prev()}}},[_c('v-icon',[_vm._v("mdi-chevron-left")])],1),_c('h3',{staticClass:"text--secondary text-center",staticStyle:{"min-width":"210px"}},[_vm._v(" "+_vm._s(_vm.moment(_vm.value).format("dddd DD MMMM YYYY"))+" ")]),_c('v-btn',{attrs:{"rounded":"","icon":""},on:{"click":function($event){return _vm.next()}}},[_c('v-icon',[_vm._v("mdi-chevron-right")])],1),_c('v-btn-toggle',{staticClass:"ml-5",attrs:{"rounded":"","dense":"","color":"secondary darken-2"},model:{value:(_vm.typeValue),callback:function ($$v) {_vm.typeValue=$$v},expression:"typeValue"}},[_c('v-btn',{attrs:{"value":"category"}},[_vm._v(" Giorno ")]),_c('v-btn',{attrs:{"value":"week"}},[_vm._v(" Settimana ")]),_c('v-btn',{attrs:{"value":"month"}},[_vm._v(" Mese ")])],1),(_vm.typeValue != 'month')?_c('v-switch',{staticClass:"ml-5 mt-5",attrs:{"inset":"","color":"primary","label":"Mostra intera giornata"},on:{"change":_vm.setCalendarViewInterval},model:{value:(_vm.showFullDay),callback:function ($$v) {_vm.showFullDay=$$v},expression:"showFullDay"}}):_vm._e(),(_vm.typeValue == 'category' && !_vm.proposalData && _vm.extraBtnData.visible)?_c('v-btn',{staticClass:"ml-5",attrs:{"elevation":"0","rounded":"","color":"orange","dark":""},on:{"click":_vm.extraBtnData.fn}},[_vm._v(" "+_vm._s(_vm.extraBtnData.text)+" ")]):_vm._e()],1),_c('v-calendar',_vm._g({ref:"calendar",attrs:{"locale":_vm.localeValue,"type":_vm.typeValue,"events":_vm.eventsData,"event-overlap-mode":_vm.modeValue,"event-overlap-threshold":30,"event-color":_vm.getEventColor,"first-time":_vm.firstTimeValue,"interval-count":_vm.intervalCountValue,"interval-minutes":15,"interval-format":function (locale, getOptions) { return locale.time; },"mobile-breakpoint":0,"event-more":false,"categories":_vm.categories,"weekdays":[1, 2, 3, 4, 5, 6, 0]},on:{"change":_vm.getEvents,"click:event":_vm.showDetails},scopedSlots:_vm._u([{key:"event",fn:function(ref){
+    },attrs:{"id":"toolbar","dense":"","flat":""}},[_c('v-btn',{attrs:{"rounded":"","icon":""},on:{"click":function($event){return _vm.prev()}}},[_c('v-icon',[_vm._v("mdi-chevron-left")])],1),_c('h3',{staticClass:"text--secondary text-center",staticStyle:{"min-width":"210px"}},[_vm._v(" "+_vm._s(_vm.moment(_vm.value).format("dddd DD MMMM YYYY"))+" ")]),_c('v-btn',{attrs:{"rounded":"","icon":""},on:{"click":function($event){return _vm.next()}}},[_c('v-icon',[_vm._v("mdi-chevron-right")])],1),_c('v-btn-toggle',{staticClass:"ml-5",attrs:{"rounded":"","dense":"","color":"secondary darken-2"},model:{value:(_vm.typeValue),callback:function ($$v) {_vm.typeValue=$$v},expression:"typeValue"}},[_c('v-btn',{attrs:{"value":"category"}},[_vm._v(" Giorno ")]),_c('v-btn',{attrs:{"value":"week"}},[_vm._v(" Settimana ")]),_c('v-btn',{attrs:{"value":"month"}},[_vm._v(" Mese ")])],1),(_vm.typeValue != 'month')?_c('v-switch',{staticClass:"ml-5 mt-5",attrs:{"inset":"","color":"primary","label":"Mostra intera giornata"},on:{"change":_vm.setCalendarViewInterval},model:{value:(_vm.showFullDay),callback:function ($$v) {_vm.showFullDay=$$v},expression:"showFullDay"}}):_vm._e(),(_vm.typeValue == 'category' && !_vm.proposalData && _vm.extraBtnData.visible)?_c('v-btn',{staticClass:"ml-5",attrs:{"elevation":"0","rounded":"","color":"orange","dark":""},on:{"click":_vm.extraBtnData.fn}},[_vm._v(" "+_vm._s(_vm.extraBtnData.text)+" ")]):_vm._e()],1),_c('v-calendar',_vm._g({ref:"calendar",attrs:{"locale":_vm.localeValue,"type":_vm.typeValue,"events":_vm.eventsData,"event-overlap-mode":_vm.modeValue,"event-overlap-threshold":30,"event-color":_vm.getEventColor,"first-time":_vm.firstTimeValue,"interval-count":_vm.intervalCountValue,"interval-minutes":15,"interval-format":function (locale, getOptions) { return locale.time; },"mobile-breakpoint":0,"event-more":false,"categories":_vm.categories,"weekdays":[1, 2, 3, 4, 5, 6, 0]},on:{"click:event":_vm.showDetails},scopedSlots:_vm._u([{key:"event",fn:function(ref){
     var event = ref.event;
 return [_c('v-tooltip',{attrs:{"top":""},scopedSlots:_vm._u([{key:"activator",fn:function(ref){
     var on = ref.on;
@@ -68035,7 +68035,7 @@ return [_c('div',_vm._g(_vm._b({},'div',attrs,false),on),[_c('div',{staticClass:
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=a1c863f6&
+// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=662f6052&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("a9e3");
@@ -68276,7 +68276,7 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
   },
   methods: {
     setCalendarViewInterval: function setCalendarViewInterval() {
-      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
+      if (this.$refs && this.$refs.calendar) {
         if (this.showFullDay) {
           this.firstTimeValue = "00:00";
           this.intervalCountValue = 96;
@@ -68297,14 +68297,14 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
       var nativeEvent = _ref.nativeEvent,
           event = _ref.event;
 
-      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
+      if (this.$refs && this.$refs.calendar) {
         this.$parent.$emit("EVENT_DETAILS", event);
       }
 
       if (nativeEvent) nativeEvent.stopPropagation();
     },
     prev: function prev() {
-      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
+      if (this.$refs && this.$refs.calendar) {
         this.$refs.calendar.prev();
         this.$parent.$emit("CALENDAR_CHANGED", {
           start: this.$refs.calendar.start,
@@ -68315,7 +68315,7 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
       }
     },
     next: function next() {
-      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
+      if (this.$refs && this.$refs.calendar) {
         this.$refs.calendar.next();
         this.$parent.$emit("CALENDAR_CHANGED", {
           start: this.$refs.calendar.start,
@@ -68327,20 +68327,12 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
     },
     getEventColor: function getEventColor(event) {
       return event.color;
-    },
-    getEvents: function getEvents(_ref2) {
-      var start = _ref2.start,
-          end = _ref2.end;
+    } // getEvents({ start, end }) {
+    //   if (this.$refs && this.$refs.calendar) {
+    //     this.$parent.$emit("CALENDAR_CHANGED", { start, end, date: this.value, showFullDay: this.showFullDay });
+    //   }
+    // },
 
-      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
-        this.$parent.$emit("CALENDAR_CHANGED", {
-          start: start,
-          end: end,
-          date: this.value,
-          showFullDay: this.showFullDay
-        });
-      }
-    }
   },
   watch: {
     events: {
@@ -68395,7 +68387,7 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
     },
     typeValue: {
       handler: function handler() {
-        if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
+        if (this.$refs && this.$refs.calendar) {
           this.$parent.$emit("CALENDAR_CHANGED", {
             start: this.$refs.calendar.start,
             end: this.$refs.calendar.end,

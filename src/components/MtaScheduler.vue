@@ -72,9 +72,9 @@
       :event-more="false"
       :categories="categories"
       :weekdays="[1, 2, 3, 4, 5, 6, 0]"
-      @change="getEvents"
       @click:event="showDetails"
     >
+      <!-- @change="getEvents" -->
       <template #event="{ event }">
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
@@ -188,7 +188,7 @@ export default {
   },
   methods: {
     setCalendarViewInterval() {
-      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
+      if (this.$refs && this.$refs.calendar) {
         if (this.showFullDay) {
           this.firstTimeValue = "00:00";
           this.intervalCountValue = 96;
@@ -200,19 +200,19 @@ export default {
       }
     },
     showDetails({ nativeEvent, event }) {
-      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
+      if (this.$refs && this.$refs.calendar) {
         this.$parent.$emit("EVENT_DETAILS", event);
       }
       if (nativeEvent) nativeEvent.stopPropagation()
     },
     prev() {
-      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
+      if (this.$refs && this.$refs.calendar) {
         this.$refs.calendar.prev();
         this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
       }
     },
     next() {
-      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
+      if (this.$refs && this.$refs.calendar) {
         this.$refs.calendar.next();
         this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
       }
@@ -220,11 +220,11 @@ export default {
     getEventColor(event) {
       return event.color;
     },
-    getEvents({ start, end }) {
-      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
-        this.$parent.$emit("CALENDAR_CHANGED", { start, end, date: this.value, showFullDay: this.showFullDay });
-      }
-    },
+    // getEvents({ start, end }) {
+    //   if (this.$refs && this.$refs.calendar) {
+    //     this.$parent.$emit("CALENDAR_CHANGED", { start, end, date: this.value, showFullDay: this.showFullDay });
+    //   }
+    // },
   },
   watch: {
     events: {
@@ -273,7 +273,7 @@ export default {
     },
     typeValue: {
         handler() {
-          if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
+          if (this.$refs && this.$refs.calendar) {
             this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
           }
         }
