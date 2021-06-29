@@ -73,6 +73,7 @@
       :categories="categories"
       :weekdays="[1, 2, 3, 4, 5, 6, 0]"
       @change="getEvents"
+      @click:event="showDetails"
     >
       <template #event="{ event }">
         <v-tooltip top>
@@ -213,21 +214,24 @@ export default {
         this.firstTimeValue = "05:00";
         this.intervalCountValue = 60;
       }
-      this.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
+      this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
+    },
+    showDetails({ data }) {
+      this.$parent.$emit("EVENT_DETAILS", { data });
     },
     prev() {
       this.$refs.calendar.prev();
-      this.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
+      this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
     },
     next() {
       this.$refs.calendar.next();
-      this.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
+      this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
     },
     getEventColor(event) {
       return event.color;
     },
     getEvents({ start, end }) {
-      this.$emit("CALENDAR_CHANGED", { start, end, date: this.value, showFullDay: this.showFullDay });
+      this.$parent.$emit("CALENDAR_CHANGED", { start, end, date: this.value, showFullDay: this.showFullDay });
       //   const events = [];
 
       //   const min = new Date(`${start.date}T00:00:00`);
@@ -307,7 +311,7 @@ export default {
     },
     typeValue: {
         handler() {
-          this.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
+          this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
         }
     },
   },
