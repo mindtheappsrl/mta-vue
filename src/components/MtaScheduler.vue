@@ -188,7 +188,7 @@ export default {
   },
   methods: {
     setCalendarViewInterval() {
-      if (this.$refs && this.$refs.calendar) {
+      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
         if (this.showFullDay) {
           this.firstTimeValue = "00:00";
           this.intervalCountValue = 96;
@@ -200,17 +200,19 @@ export default {
       }
     },
     showDetails({ nativeEvent, event }) {
-      this.$parent.$emit("EVENT_DETAILS", event);
+      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
+        this.$parent.$emit("EVENT_DETAILS", event);
+      }
       if (nativeEvent) nativeEvent.stopPropagation()
     },
     prev() {
-      if (this.$refs && this.$refs.calendar) {
+      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
         this.$refs.calendar.prev();
         this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
       }
     },
     next() {
-      if (this.$refs && this.$refs.calendar) {
+      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
         this.$refs.calendar.next();
         this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
       }
@@ -219,7 +221,9 @@ export default {
       return event.color;
     },
     getEvents({ start, end }) {
-      this.$parent.$emit("CALENDAR_CHANGED", { start, end, date: this.value, showFullDay: this.showFullDay });
+      if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
+        this.$parent.$emit("CALENDAR_CHANGED", { start, end, date: this.value, showFullDay: this.showFullDay });
+      }
     },
   },
   watch: {
@@ -269,7 +273,7 @@ export default {
     },
     typeValue: {
         handler() {
-          if (this.$refs && this.$refs.calendar) {
+          if (this.$refs && this.$refs.calendar && this.$refs.calendar.start && this.$refs.calendar.end) {
             this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
           }
         }
