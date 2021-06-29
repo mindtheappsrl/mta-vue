@@ -68091,7 +68091,7 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
 var vuetify = __webpack_require__("ce5b");
 var vuetify_default = /*#__PURE__*/__webpack_require__.n(vuetify);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ff337c1c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=701beb68&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"78e4081c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=5a10b58e&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"width":"100%","overflow":"auto"}},[_c('div',{ref:"schedulerContainer",staticStyle:{"position":"relative"}},[_c('v-toolbar',{staticClass:"grey lighten-4",class:{
         'mr-4':
           (_vm.categories.length > 5 && _vm.typeValue === 'category') || _vm.typeValue === 'week',
@@ -68104,7 +68104,7 @@ return [_c('div',_vm._g(_vm._b({},'div',attrs,false),on),[_c('div',{staticClass:
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=701beb68&
+// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=5a10b58e&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("a9e3");
@@ -68418,6 +68418,7 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
           });
           this.eventsData.forEach(function (e) {
             if (!e.timed) {
+              e.start = moment_default()(e.start).format("YYYY-MM-DD");
               e.end = null;
             }
           });

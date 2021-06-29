@@ -247,6 +247,7 @@ export default {
             this.eventsData = newVal.map((e) => new EventModel(e));
             this.eventsData.forEach((e) => {
               if(!e.timed) {
+                e.start = moment(e.start).format("YYYY-MM-DD")
                 e.end = null
               }
             });
