@@ -9,5 +9,10 @@ export default function(event) {
     this.extra = event ? event.extra : null
     this.category = event ? event.category : null
     this.timed = event ? event.timed : true
+    for (var prop in event) {
+        if (Object.prototype.hasOwnProperty.call(event, prop)) {
+            this[prop] = prop
+        }
+    }
   }
   
