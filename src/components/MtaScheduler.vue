@@ -245,8 +245,11 @@ export default {
             this.eventsData = newVal.map((e) => new EventModel(e));
             const list = newVal.map((e) => e.category);
             this.categories = list.filter((v, i) => list.indexOf(v) == i);
-            this.setCalWidth();
+          } else {
+            this.eventsData = [];
+            this.categories = [];
           }
+          this.setCalWidth();
         },
     },
     proposal: {
