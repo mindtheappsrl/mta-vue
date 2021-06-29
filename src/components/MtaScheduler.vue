@@ -97,8 +97,8 @@
               </div>
             </div>
           </template>
-          <span>
-            <div>
+          <span>{{ event.title }}</span>
+            <!-- <div>
               <strong>{{ event.title }}</strong>
               <br />
               <span>
@@ -116,7 +116,7 @@
             >
               <v-icon color="white">mdi-account-check</v-icon>
             </div>
-          </span>
+          </span> -->
         </v-tooltip>
       </template>
     </v-calendar>
@@ -126,13 +126,13 @@
 import moment from "moment";
 export default {
   props: {
-    proposal: {
-      type: Object,
-      default: () => null,
-    },
     events: {
       type: Array,
       default: () => [],
+    },
+    proposal: {
+      type: Object,
+      default: () => null,
     },
     locale: {
       type: String,
@@ -207,7 +207,7 @@ export default {
         this.firstTimeValue = "00:00";
         this.intervalCountValue = 96;
       } else {
-        this.firstTimeValueime = "05:00";
+        this.firstTimeValue = "05:00";
         this.intervalCountValue = 60;
       }
     },

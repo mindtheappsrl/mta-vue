@@ -68031,7 +68031,7 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
 var vuetify = __webpack_require__("ce5b");
 var vuetify_default = /*#__PURE__*/__webpack_require__.n(vuetify);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5668dbb3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=3cae339f&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5668dbb3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=045b8270&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('v-toolbar',{staticClass:"grey lighten-4",class:{
       'mr-4':
         (_vm.categories.length > 5 && _vm.type === 'category') || _vm.type === 'week',
@@ -68040,11 +68040,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 return [_c('v-tooltip',{attrs:{"top":""},scopedSlots:_vm._u([{key:"activator",fn:function(ref){
     var on = ref.on;
     var attrs = ref.attrs;
-return [_c('div',_vm._g(_vm._b({},'div',attrs,false),on),[_c('div',{staticClass:"pl-1",staticStyle:{"text-shadow":"1px 1px 2px rgb(0 0 0)"}},[_c('strong',[_vm._v(_vm._s(event.title))]),_c('br'),_c('span',[_vm._v(" "+_vm._s(_vm.moment(event.start).format("HH:mm"))+" - "+_vm._s(_vm.moment(event.end).format("HH:mm"))+" ")]),_c('br'),(event.subtitle)?_c('small',{staticClass:"font-weight-bold mr-2"},[_vm._v(" "+_vm._s(event.subtitle)+" ")]):_vm._e()]),(event.isChecked)?_c('div',{staticStyle:{"position":"absolute","top":"3px","right":"3px"}},[_c('v-icon',{attrs:{"color":"white"}},[_vm._v("mdi-account-check")])],1):_vm._e()])]}}],null,true)},[_c('span',[_c('div',[_c('strong',[_vm._v(_vm._s(event.title))]),_c('br'),_c('span',[_vm._v(" "+_vm._s(_vm.moment(event.start).format("HH:mm"))+" - "+_vm._s(_vm.moment(event.end).format("HH:mm"))+" ")]),_c('br'),(event.subtitle)?_c('small',{staticClass:"font-weight-bold mr-2"},[_vm._v(" "+_vm._s(event.subtitle)+" ")]):_vm._e()]),(event.isChecked)?_c('div',{staticStyle:{"position":"absolute","top":"3px","right":"3px"}},[_c('v-icon',{attrs:{"color":"white"}},[_vm._v("mdi-account-check")])],1):_vm._e()])])]}}]),model:{value:(_vm.value),callback:function ($$v) {_vm.value=$$v},expression:"value"}})],1)}
+return [_c('div',_vm._g(_vm._b({},'div',attrs,false),on),[_c('div',{staticClass:"pl-1",staticStyle:{"text-shadow":"1px 1px 2px rgb(0 0 0)"}},[_c('strong',[_vm._v(_vm._s(event.title))]),_c('br'),_c('span',[_vm._v(" "+_vm._s(_vm.moment(event.start).format("HH:mm"))+" - "+_vm._s(_vm.moment(event.end).format("HH:mm"))+" ")]),_c('br'),(event.subtitle)?_c('small',{staticClass:"font-weight-bold mr-2"},[_vm._v(" "+_vm._s(event.subtitle)+" ")]):_vm._e()]),(event.isChecked)?_c('div',{staticStyle:{"position":"absolute","top":"3px","right":"3px"}},[_c('v-icon',{attrs:{"color":"white"}},[_vm._v("mdi-account-check")])],1):_vm._e()])]}}],null,true)},[_c('span',[_vm._v(_vm._s(event.title))])])]}}]),model:{value:(_vm.value),callback:function ($$v) {_vm.value=$$v},expression:"value"}})],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=3cae339f&
+// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=045b8270&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("a9e3");
@@ -68190,16 +68190,16 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
 
 /* harmony default export */ var MtaSchedulervue_type_script_lang_js_ = ({
   props: {
-    proposal: {
-      type: Object,
-      default: function _default() {
-        return null;
-      }
-    },
     events: {
       type: Array,
       default: function _default() {
         return [];
+      }
+    },
+    proposal: {
+      type: Object,
+      default: function _default() {
+        return null;
       }
     },
     locale: {
@@ -68287,7 +68287,7 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
         this.firstTimeValue = "00:00";
         this.intervalCountValue = 96;
       } else {
-        this.firstTimeValueime = "05:00";
+        this.firstTimeValue = "05:00";
         this.intervalCountValue = 60;
       }
     },
