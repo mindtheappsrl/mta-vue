@@ -207,26 +207,32 @@ export default {
   },
   methods: {
     setCalendarViewInterval() {
-      if (this.showFullDay) {
-        this.firstTimeValue = "00:00";
-        this.intervalCountValue = 96;
-      } else {
-        this.firstTimeValue = "05:00";
-        this.intervalCountValue = 60;
+      if (this.$refs && this.$refs.calendar) {
+        if (this.showFullDay) {
+          this.firstTimeValue = "00:00";
+          this.intervalCountValue = 96;
+        } else {
+          this.firstTimeValue = "05:00";
+          this.intervalCountValue = 60;
+        }
+        this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
       }
-      this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
     },
     showDetails({ nativeEvent, event }) {
       this.$parent.$emit("EVENT_DETAILS", { event });
       if (nativeEvent) nativeEvent.stopPropagation()
     },
     prev() {
-      this.$refs.calendar.prev();
-      this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
+      if (this.$refs && this.$refs.calendar) {
+        this.$refs.calendar.prev();
+        this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
+      }
     },
     next() {
-      this.$refs.calendar.next();
-      this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
+      if (this.$refs && this.$refs.calendar) {
+        this.$refs.calendar.next();
+        this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
+      }
     },
     getEventColor(event) {
       return event.color;
@@ -313,7 +319,9 @@ export default {
     },
     typeValue: {
         handler() {
-          this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
+          if (this.$refs && this.$refs.calendar) {
+            this.$parent.$emit("CALENDAR_CHANGED", { start: this.$refs.calendar.start, end: this.$refs.calendar.end, date: this.value, showFullDay: this.showFullDay });
+          }
         }
     },
   },
