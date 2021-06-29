@@ -200,7 +200,7 @@ export default {
     },
     showDetails({ nativeEvent, event }) {
       if (this.$refs && this.$refs.calendar) {
-        this.$parent.$emit("EVENT_DETAILS", event);
+        this.$emit("eventDetails", event);
       }
       if (nativeEvent) nativeEvent.stopPropagation()
     },
@@ -215,7 +215,7 @@ export default {
     },
     getEvents({ start, end }) {
       if (this.$refs && this.$refs.calendar) {
-        this.$emit("CALENDAR_CHANGED", { start, end, date: this.value, showFullDay: this.showFullDay });
+        this.$emit("rangeChanged", { start, end, date: this.value, showFullDay: this.showFullDay });
       }
     },
   },
