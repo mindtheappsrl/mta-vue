@@ -1,5 +1,5 @@
 <template>  
-  <div ref="schedulerContainer" style="position:relative">
+  <div ref="schedulerContainer" style="position:relative;width:100%;overflow:auto">
     <v-toolbar
       id="toolbar"
       dense
