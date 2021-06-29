@@ -68022,7 +68022,7 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpac
 var vuetify = __webpack_require__("ce5b");
 var vuetify_default = /*#__PURE__*/__webpack_require__.n(vuetify);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5668dbb3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=186e298e&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5668dbb3-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=56c14d39&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('v-toolbar',{staticClass:"grey lighten-4",class:{
       'mr-4':
         (_vm.categories.length > 5 && _vm.type === 'category') || _vm.type === 'week',
@@ -68035,7 +68035,7 @@ return [_c('div',_vm._g(_vm._b({},'div',attrs,false),on),[_c('div',{staticClass:
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=186e298e&
+// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=56c14d39&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("a9e3");
@@ -68300,7 +68300,7 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
     },
     prev: function prev() {
       this.$refs.calendar.prev();
-      this.$emit("CALENDAR_CHANGED", {
+      this.$parent.$emit("CALENDAR_CHANGED", {
         start: this.$refs.calendar.start,
         end: this.$refs.calendar.end,
         date: this.value,
@@ -68309,7 +68309,7 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
     },
     next: function next() {
       this.$refs.calendar.next();
-      this.$emit("CALENDAR_CHANGED", {
+      this.$parent.$emit("CALENDAR_CHANGED", {
         start: this.$refs.calendar.start,
         end: this.$refs.calendar.end,
         date: this.value,
@@ -68322,7 +68322,7 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
     getEvents: function getEvents(_ref) {
       var start = _ref.start,
           end = _ref.end;
-      this.$emit("CALENDAR_CHANGED", {
+      this.$parent.$emit("CALENDAR_CHANGED", {
         start: start,
         end: end,
         date: this.value,
@@ -68409,7 +68409,7 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
     },
     typeValue: {
       handler: function handler() {
-        this.$emit("CALENDAR_CHANGED", {
+        this.$parent.$emit("CALENDAR_CHANGED", {
           start: this.$refs.calendar.start,
           end: this.$refs.calendar.end,
           date: this.value,
