@@ -200,7 +200,7 @@ export default {
       }
     },
     showDetails({ nativeEvent, event }) {
-      this.$parent.$emit("EVENT_DETAILS", { event });
+      this.$parent.$emit("EVENT_DETAILS", event);
       if (nativeEvent) nativeEvent.stopPropagation()
     },
     prev() {
