@@ -231,11 +231,11 @@ export default {
       }
     },
     getTimeRange(event) {
-      const start = moment(event.start).format("HH:mm")
-      const end = moment(event.end).format("HH:mm")
-      
-      if(start.isValid() && end.isValid() && start != '00:00' && end != '00:00') {
-        return start + ' - ' + end;
+      const start = moment(event.start)
+      const end = moment(event.end)
+
+      if(start.isValid() && end.isValid() && start.format("HH:mm") != '00:00' && end.format("HH:mm") != '00:00') {
+        return start.format("HH:mm") + ' - ' + end.format("HH:mm");
       } else {
         return 'Tutto il giorno';
       }
