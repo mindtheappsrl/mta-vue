@@ -1,60 +1,60 @@
 <template>  
-  <div style="width: 100%; overflow:auto">
-    <div style="position:relative">
-      <v-toolbar
-        id="toolbar"
+  <div style="position:relative">
+    <v-toolbar
+      id="toolbar"
+      dense
+      flat
+      class="grey lighten-4"
+      :class="{
+        'mr-4':
+          (categories.length > 5 && typeValue === 'category') || typeValue === 'week',
+      }"
+    >
+      <v-btn rounded icon @click="prev()">
+        <v-icon>mdi-chevron-left</v-icon>
+      </v-btn>
+      <h3 class="text--secondary text-center" style="min-width: 210px">
+        {{ moment(value).format("dddd DD MMMM YYYY") }}
+      </h3>
+      <v-btn rounded icon @click="next()">
+        <v-icon>mdi-chevron-right</v-icon>
+      </v-btn>
+      <v-btn-toggle
+        v-model="typeValue"
+        rounded
         dense
-        flat
-        class="grey lighten-4"
-        :class="{
-          'mr-4':
-            (categories.length > 5 && typeValue === 'category') || typeValue === 'week',
-        }"
+        color="secondary darken-2"
+        class="ml-5"
       >
-        <v-btn rounded icon @click="prev()">
-          <v-icon>mdi-chevron-left</v-icon>
-        </v-btn>
-        <h3 class="text--secondary text-center" style="min-width: 210px">
-          {{ moment(value).format("dddd DD MMMM YYYY") }}
-        </h3>
-        <v-btn rounded icon @click="next()">
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-btn>
-        <v-btn-toggle
-          v-model="typeValue"
-          rounded
-          dense
-          color="secondary darken-2"
-          class="ml-5"
-        >
-          <v-btn value="category"> Giorno </v-btn>
+        <v-btn value="category"> Giorno </v-btn>
 
-          <v-btn value="week"> Settimana </v-btn>
+        <v-btn value="week"> Settimana </v-btn>
 
-          <v-btn value="month"> Mese </v-btn>
-        </v-btn-toggle>
-        <v-switch
-          v-if="typeValue != 'month'"
-          v-model="showFullDay"
-          inset
-          class="ml-5 mt-5"
-          color="primary"
-          label="Mostra intera giornata"
-          @change="setCalendarViewInterval"
-        >
-        </v-switch>
-        <v-btn
-          v-if="typeValue == 'category' && !proposalData && extraBtnData.visible"
-          elevation="0"
-          rounded
-          class="ml-5"
-          color="orange"
-          dark
-          @click="extraBtnData.fn"
-        >
-          {{extraBtnData.text}}
-        </v-btn>
-      </v-toolbar>
+        <v-btn value="month"> Mese </v-btn>
+      </v-btn-toggle>
+      <v-switch
+        v-if="typeValue != 'month'"
+        v-model="showFullDay"
+        inset
+        class="ml-5 mt-5"
+        color="primary"
+        label="Mostra intera giornata"
+        @change="setCalendarViewInterval"
+      >
+      </v-switch>
+      <v-btn
+        v-if="typeValue == 'category' && !proposalData && extraBtnData.visible"
+        elevation="0"
+        rounded
+        class="ml-5"
+        color="orange"
+        dark
+        @click="extraBtnData.fn"
+      >
+        {{extraBtnData.text}}
+      </v-btn>
+    </v-toolbar>
+    <div style="width: 100%; overflow:auto">
       <div ref="schedulerContainer">
         <v-calendar
           v-on="$listeners"
@@ -303,5 +303,26 @@ export default {
 <style>
 .v-calendar:not(.v-calendar-monthly) {
     height: 700px !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 </style>
