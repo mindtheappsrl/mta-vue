@@ -1,6 +1,6 @@
 <template>  
   <div style="width: 100%; overflow:auto">
-    <div ref="schedulerContainer" style="position:relative">
+    <div style="position:relative">
       <v-toolbar
         id="toolbar"
         dense
@@ -55,33 +55,55 @@
           {{extraBtnData.text}}
         </v-btn>
       </v-toolbar>
-      <v-calendar
-        v-on="$listeners"
-        ref="calendar"
-        v-model="value"
-        :locale="localeValue"
-        :type="typeValue"
-        :events="eventsData"
-        :event-overlap-mode="modeValue"
-        :event-overlap-threshold="30"
-        :event-color="getEventColor"
-        :first-time="firstTimeValue"
-        :interval-count="intervalCountValue"
-        :interval-minutes="15"
-        :interval-format="(locale, getOptions) => locale.time"
-        :mobile-breakpoint="0"
-        :event-more="false"
-        :categories="categories"
-        :weekdays="[1, 2, 3, 4, 5, 6, 0]"
-        @change="getEvents"
-        @click:event="showDetails"
-        @click:date="goToDate"
-      >
-        <template #event="{ event }">
-          <v-tooltip top>
-            <template v-slot:activator="{ on, attrs }">
-              <div v-bind="attrs" v-on="on">
-                <div class="pl-1" style="text-shadow: 1px 1px 2px rgb(0 0 0);">
+      <div ref="schedulerContainer">
+        <v-calendar
+          v-on="$listeners"
+          ref="calendar"
+          v-model="value"
+          :locale="localeValue"
+          :type="typeValue"
+          :events="eventsData"
+          :event-overlap-mode="modeValue"
+          :event-overlap-threshold="30"
+          :event-color="getEventColor"
+          :first-time="firstTimeValue"
+          :interval-count="intervalCountValue"
+          :interval-minutes="15"
+          :interval-format="(locale, getOptions) => locale.time"
+          :mobile-breakpoint="0"
+          :event-more="false"
+          :categories="categories"
+          :weekdays="[1, 2, 3, 4, 5, 6, 0]"
+          @change="getEvents"
+          @click:event="showDetails"
+          @click:date="goToDate"
+        >
+          <template #event="{ event }">
+            <v-tooltip top>
+              <template v-slot:activator="{ on, attrs }">
+                <div v-bind="attrs" v-on="on">
+                  <div class="pl-1" style="text-shadow: 1px 1px 2px rgb(0 0 0);">
+                    <strong>{{ event.title }}</strong>
+                    <br />
+                    <span>
+                      {{ moment(event.start).format("HH:mm") }} -
+                      {{ moment(event.end).format("HH:mm") }}
+                    </span>
+                    <br />
+                    <small v-if="event.subtitle" class="font-weight-bold mr-2">
+                      {{ event.subtitle }}
+                    </small>
+                  </div>
+                  <div
+                    v-if="event.isChecked"
+                    style="position: absolute; top: -1px; right: 3px"
+                  >
+                    <v-icon color="white">mdi-check</v-icon>
+                  </div>
+                </div>
+              </template>
+              <span>
+                <div>
                   <strong>{{ event.title }}</strong>
                   <br />
                   <span>
@@ -95,35 +117,15 @@
                 </div>
                 <div
                   v-if="event.isChecked"
-                  style="position: absolute; top: -1px; right: 3px"
+                  style="position: absolute; top: 3px; right: 3px"
                 >
                   <v-icon color="white">mdi-check</v-icon>
                 </div>
-              </div>
-            </template>
-            <span>
-              <div>
-                <strong>{{ event.title }}</strong>
-                <br />
-                <span>
-                  {{ moment(event.start).format("HH:mm") }} -
-                  {{ moment(event.end).format("HH:mm") }}
-                </span>
-                <br />
-                <small v-if="event.subtitle" class="font-weight-bold mr-2">
-                  {{ event.subtitle }}
-                </small>
-              </div>
-              <div
-                v-if="event.isChecked"
-                style="position: absolute; top: 3px; right: 3px"
-              >
-                <v-icon color="white">mdi-check</v-icon>
-              </div>
-            </span>
-          </v-tooltip>
-        </template>
-      </v-calendar>
+              </span>
+            </v-tooltip>
+          </template>
+        </v-calendar>
+      </div>
     </div>
   </div>
 </template>
@@ -298,3 +300,8 @@ export default {
   },
 };
 </script>
+<style>
+.v-calendar:not(.v-calendar-monthly) {
+    height: 700px !important;
+}
+</style>
