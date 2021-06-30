@@ -58,6 +58,7 @@
       <div ref="schedulerContainer">
         <v-calendar
           v-on="$listeners"
+          class="custom-calendar"
           ref="calendar"
           v-model="value"
           :locale="localeValue"
@@ -126,7 +127,12 @@
           </template>
         </v-calendar>
       </div>
-    </div>
+    </div>    
+    <style>
+      .custom-calendar.v-calendar:not(.v-calendar-monthly) {
+        height: 700px !important;
+      }
+    </style>
   </div>
 </template>
 <script>
@@ -300,29 +306,3 @@ export default {
   },
 };
 </script>
-<style>
-.v-calendar:not(.v-calendar-monthly) {
-    height: 700px !important;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-</style>
