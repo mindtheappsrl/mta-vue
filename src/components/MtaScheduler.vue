@@ -77,7 +77,6 @@
           @change="getEvents"
           @click:event="showDetails"
           @click:date="goToDate"
-          style="height: 700px"
         >
           <template #event="{ event }">
             <v-tooltip top>
@@ -194,6 +193,14 @@ export default {
   mounted() {
     moment.locale(this.locale);
     this.hasCategoryView ? this.typeValue = 'category' : this.typeValue = 'day'
+  },
+  updated() {
+    if(this.typeValue == 'month') {
+      this.$refs.calendar.style.height = 'auto'
+    } else {
+      this.$refs.calendar.style.height = '700px'
+    }
+    console.log(this.$refs.calendar.style.height);
   },
   methods: {
     setCalWidth() {
