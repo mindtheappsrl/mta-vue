@@ -231,15 +231,14 @@ export default {
       }
     },
     getTimeRange(event) {
-      let start = null
-      let end = null
-      try {
-        start = moment(event.start).format("HH:mm")
-        end = moment(event.end).format("HH:mm")
-      } catch (error) {
-        console.log(error);
+      const start = moment(event.start).format("HH:mm")
+      const end = moment(event.end).format("HH:mm")
+      
+      if(start.isValid() && end.isValid() && start != '00:00' && end != '00:00') {
+        return start + ' - ' + end;
+      } else {
+        return 'Tutto il giorno';
       }
-      return start && end ? start + ' - ' + end : 'Tutto il giorno'
     },
     prev() {
       this.$refs.calendar.prev();
