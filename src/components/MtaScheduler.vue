@@ -1,5 +1,4 @@
 <template>  
-  <v-app>
     <div style="width: 100%; overflow:auto">
       <div ref="schedulerContainer" style="position:relative">
         <v-toolbar
@@ -127,7 +126,6 @@
         </v-calendar>
       </div>
     </div>
-  </v-app>
 </template>
 <script>
 import moment from "moment";
