@@ -68122,7 +68122,7 @@ var vuetify_default = /*#__PURE__*/__webpack_require__.n(vuetify);
 // EXTERNAL MODULE: ./node_modules/vuetify/dist/vuetify.min.css
 var vuetify_min = __webpack_require__("bf40");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"0902c418-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=6563810f&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5e651e7e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=9d177154&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"position":"relative"}},[_c('v-toolbar',{staticClass:"grey lighten-4",class:{
       'mr-4':
         (_vm.categories.length > 5 && _vm.typeValue === 'category') || _vm.typeValue === 'week',
@@ -68131,11 +68131,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 return [_c('v-tooltip',{attrs:{"top":""},scopedSlots:_vm._u([{key:"activator",fn:function(ref){
     var on = ref.on;
     var attrs = ref.attrs;
-return [_c('div',_vm._g(_vm._b({},'div',attrs,false),on),[_c('div',{staticClass:"pl-1",staticStyle:{"text-shadow":"1px 1px 2px rgb(0 0 0)"}},[_c('strong',[_vm._v(_vm._s(event.title))]),_c('br'),_c('span',[_vm._v(" "+_vm._s(_vm.moment(event.start).format("HH:mm"))+" - "+_vm._s(_vm.moment(event.end).format("HH:mm"))+" ")]),_c('br'),(event.subtitle)?_c('small',{staticClass:"font-weight-bold mr-2"},[_vm._v(" "+_vm._s(event.subtitle)+" ")]):_vm._e()]),(event.isChecked)?_c('div',{staticStyle:{"position":"absolute","top":"-1px","right":"3px"}},[_c('v-icon',{attrs:{"color":"white"}},[_vm._v("mdi-check")])],1):_vm._e()])]}}],null,true)},[_c('span',[_c('div',[_c('strong',[_vm._v(_vm._s(event.title))]),_c('br'),_c('span',[_vm._v(" "+_vm._s(_vm.moment(event.start).format("HH:mm"))+" - "+_vm._s(_vm.moment(event.end).format("HH:mm"))+" ")]),_c('br'),(event.subtitle)?_c('small',{staticClass:"font-weight-bold mr-2"},[_vm._v(" "+_vm._s(event.subtitle)+" ")]):_vm._e()]),(event.isChecked)?_c('div',{staticStyle:{"position":"absolute","top":"3px","right":"3px"}},[_c('v-icon',{attrs:{"color":"white"}},[_vm._v("mdi-check")])],1):_vm._e()])])]}}]),model:{value:(_vm.value),callback:function ($$v) {_vm.value=$$v},expression:"value"}},_vm.$listeners))],1)])],1)}
+return [_c('div',_vm._g(_vm._b({},'div',attrs,false),on),[_c('div',{staticClass:"pl-1",staticStyle:{"text-shadow":"1px 1px 2px rgb(0 0 0)"}},[_c('strong',[_vm._v(_vm._s(event.title))]),_c('br'),_c('span',[_vm._v(" "+_vm._s(_vm.getTimeRange(event))+" ")]),_c('br'),(event.subtitle)?_c('small',{staticClass:"font-weight-bold mr-2"},[_vm._v(" "+_vm._s(event.subtitle)+" ")]):_vm._e()]),(event.isChecked)?_c('div',{staticStyle:{"position":"absolute","top":"-1px","right":"3px"}},[_c('v-icon',{attrs:{"color":"white"}},[_vm._v("mdi-check")])],1):_vm._e()])]}}],null,true)},[_c('span',[_c('div',[_c('strong',[_vm._v(_vm._s(event.title))]),_c('br'),_c('span',[_vm._v(" "+_vm._s(_vm.getTimeRange(event))+" ")]),_c('br'),(event.subtitle)?_c('small',{staticClass:"font-weight-bold mr-2"},[_vm._v(" "+_vm._s(event.subtitle)+" ")]):_vm._e()]),(event.isChecked)?_c('div',{staticStyle:{"position":"absolute","top":"3px","right":"3px"}},[_c('v-icon',{attrs:{"color":"white"}},[_vm._v("mdi-check")])],1):_vm._e()])])]}}]),model:{value:(_vm.value),callback:function ($$v) {_vm.value=$$v},expression:"value"}},_vm.$listeners))],1)])],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=6563810f&
+// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=9d177154&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("a9e3");
@@ -68172,8 +68172,6 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
 
 
 
-//
-//
 //
 //
 //
@@ -68422,6 +68420,19 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
         this.hasCategoryView ? this.typeValue = 'category' : this.typeValue = 'day';
         this.value = date.date;
       }
+    },
+    getTimeRange: function getTimeRange(event) {
+      var start = null;
+      var end = null;
+
+      try {
+        start = moment_default()(event.start).format("HH:mm");
+        end = moment_default()(event.end).format("HH:mm");
+      } catch (error) {
+        console.log(error);
+      }
+
+      return start && end ? start + ' - ' + end : 'Tutto il giorno';
     },
     prev: function prev() {
       this.$refs.calendar.prev();

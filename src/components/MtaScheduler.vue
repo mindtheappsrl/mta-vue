@@ -87,8 +87,7 @@
                     <strong>{{ event.title }}</strong>
                     <br />
                     <span>
-                      {{ moment(event.start).format("HH:mm") }} -
-                      {{ moment(event.end).format("HH:mm") }}
+                      {{ getTimeRange(event) }}
                     </span>
                     <br />
                     <small v-if="event.subtitle" class="font-weight-bold mr-2">
@@ -108,8 +107,7 @@
                   <strong>{{ event.title }}</strong>
                   <br />
                   <span>
-                    {{ moment(event.start).format("HH:mm") }} -
-                    {{ moment(event.end).format("HH:mm") }}
+                    {{ getTimeRange(event) }}
                   </span>
                   <br />
                   <small v-if="event.subtitle" class="font-weight-bold mr-2">
@@ -231,6 +229,17 @@ export default {
         this.hasCategoryView ? this.typeValue = 'category' : this.typeValue = 'day'
         this.value = date.date
       }
+    },
+    getTimeRange(event) {
+      let start = null
+      let end = null
+      try {
+        start = moment(event.start).format("HH:mm")
+        end = moment(event.end).format("HH:mm")
+      } catch (error) {
+        console.log(error);
+      }
+      return start && end ? start + ' - ' + end : 'Tutto il giorno'
     },
     prev() {
       this.$refs.calendar.prev();
