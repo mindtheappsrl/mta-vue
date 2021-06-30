@@ -1,6 +1,6 @@
 {
   "name": "mta-vue",
-  "version": "0.2.12",
+  "version": "0.2.9",
   "private": true,
   "repository": {
     "type": "git",
@@ -12,6 +12,7 @@
     "build-lib": "npm version patch -f && vue-cli-service build --target lib --name mta-vue src/main.js",
     "lint": "vue-cli-service lint"
   },
+  "main": "dist/mta-vue.common.js",
   "dependencies": {
     "core-js": "^3.6.5",
     "moment": "^2.29.1",
