@@ -1,4 +1,4 @@
-<template>  
+<template>
   <div style="position:relative">
     <v-toolbar
       id="toolbar"
@@ -7,7 +7,8 @@
       class="grey lighten-4"
       :class="{
         'mr-4':
-          (categories.length > 5 && typeValue === 'category') || typeValue === 'week',
+          (categories.length > 5 && typeValue === 'category') ||
+          typeValue === 'week',
       }"
     >
       <v-btn rounded icon @click="prev()">
@@ -51,7 +52,7 @@
         dark
         @click="extraBtnData.fn"
       >
-        {{extraBtnData.text}}
+        {{ extraBtnData.text }}
       </v-btn>
     </v-toolbar>
     <div style="width: 100%; overflow:auto">
@@ -82,7 +83,10 @@
             <v-tooltip top>
               <template v-slot:activator="{ on, attrs }">
                 <div v-bind="attrs" v-on="on">
-                  <div class="pl-1" style="text-shadow: 1px 1px 2px rgb(0 0 0);">
+                  <div
+                    class="pl-1"
+                    style="text-shadow: 1px 1px 2px rgb(0 0 0);"
+                  >
                     <strong>{{ event.title }}</strong>
                     <br />
                     <span>
@@ -129,7 +133,7 @@
 </template>
 <script>
 import moment from "moment";
-import EventModel from '../models/event.model'
+import EventModel from "../models/event.model";
 export default {
   inheritAttrs: false,
   props: {
@@ -168,11 +172,11 @@ export default {
     extraBtn: {
       type: Object,
       default: () => {
-          return {
-            visible: false,
-            text: '',
-            fn: ''
-          }
+        return {
+          visible: false,
+          text: "",
+          fn: "",
+        };
       },
     },
   },
@@ -188,30 +192,33 @@ export default {
     firstTimeValue: "05:00",
     intervalCountValue: 60,
     extraBtnData: {},
-    showFullDay: false
+    showFullDay: false,
   }),
   mounted() {
     moment.locale(this.locale);
-    this.hasCategoryView ? this.typeValue = 'category' : this.typeValue = 'day'
+    this.hasCategoryView
+      ? (this.typeValue = "category")
+      : (this.typeValue = "day");
   },
   updated() {
-    if(this.typeValue == 'month') {
-      this.$refs.calendar.style.height = 'auto'
-    } else {
-      this.$refs.calendar.style.height = '700px'
+    if (this.$refs && this.$refs.calendar) {
+      if (this.typeValue == "month") {
+        this.$refs.calendar.style.height = "auto";
+      } else {
+        this.$refs.calendar.style.height = "700px";
+      }
+      console.log(this.$refs.calendar.style.height);
     }
-    console.log(this.$refs.calendar.style.height);
   },
   methods: {
     setCalWidth() {
       if (
-        (this.categories.length > 5 &&
-          this.typeValue === 'category') ||
-        this.typeValue === 'week'
+        (this.categories.length > 5 && this.typeValue === "category") ||
+        this.typeValue === "week"
       ) {
-        this.$refs.schedulerContainer.style.width = '2500px'
+        this.$refs.schedulerContainer.style.width = "2500px";
       } else {
-        this.$refs.schedulerContainer.style.width = ''
+        this.$refs.schedulerContainer.style.width = "";
       }
     },
     setCalendarViewInterval() {
@@ -229,22 +236,29 @@ export default {
       if (this.$refs && this.$refs.calendar) {
         this.$emit("eventDetails", event);
       }
-      if (nativeEvent) nativeEvent.stopPropagation()
+      if (nativeEvent) nativeEvent.stopPropagation();
     },
     goToDate(date) {
-      if (this.typeValue !== 'category' && this.typeValue !== 'day') {
-        this.hasCategoryView ? this.typeValue = 'category' : this.typeValue = 'day'
-        this.value = date.date
+      if (this.typeValue !== "category" && this.typeValue !== "day") {
+        this.hasCategoryView
+          ? (this.typeValue = "category")
+          : (this.typeValue = "day");
+        this.value = date.date;
       }
     },
     getTimeRange(event) {
-      const start = moment(event.start)
-      const end = moment(event.end)
+      const start = moment(event.start);
+      const end = moment(event.end);
 
-      if(start.isValid() && end.isValid() && start.format("HH:mm") != '00:00' && end.format("HH:mm") != '00:00') {
-        return start.format("HH:mm") + ' - ' + end.format("HH:mm");
+      if (
+        start.isValid() &&
+        end.isValid() &&
+        start.format("HH:mm") != "00:00" &&
+        end.format("HH:mm") != "00:00"
+      ) {
+        return start.format("HH:mm") + " - " + end.format("HH:mm");
       } else {
-        return 'Tutto il giorno';
+        return "Tutto il giorno";
       }
     },
     prev() {
@@ -258,65 +272,70 @@ export default {
     },
     getEvents({ start, end }) {
       if (this.$refs && this.$refs.calendar) {
-        this.$emit("rangeChanged", { start, end, date: this.value, showFullDay: this.showFullDay });
+        this.$emit("rangeChanged", {
+          start,
+          end,
+          date: this.value,
+          showFullDay: this.showFullDay,
+        });
         this.setCalWidth();
       }
     },
   },
   watch: {
     events: {
-        handler(newVal) {
-          if(newVal && newVal.length){
-            this.eventsData = newVal.map((e) => new EventModel(e));
-            this.eventsData.forEach((e) => {
-              if(!e.timed) {
-                e.start = moment(e.start).format("YYYY-MM-DD")
-                e.end = null
-              }
-            });
-            const list = newVal.map((e) => e.category);
-            this.categories = list.filter((v, i) => list.indexOf(v) == i);
-          } else {
-            this.eventsData = [];
-            this.categories = [];
-          }
-          this.setCalWidth();
-        },
+      handler(newVal) {
+        if (newVal && newVal.length) {
+          this.eventsData = newVal.map((e) => new EventModel(e));
+          this.eventsData.forEach((e) => {
+            if (!e.timed) {
+              e.start = moment(e.start).format("YYYY-MM-DD");
+              e.end = null;
+            }
+          });
+          const list = newVal.map((e) => e.category);
+          this.categories = list.filter((v, i) => list.indexOf(v) == i);
+        } else {
+          this.eventsData = [];
+          this.categories = [];
+        }
+        this.setCalWidth();
+      },
     },
     proposal: {
-        handler(newVal) {
-            this.porposalData = newVal;   
-        }
+      handler(newVal) {
+        this.porposalData = newVal;
+      },
     },
     locale: {
-        handler(newVal) {
-            this.localeValue = newVal;   
-        }
+      handler(newVal) {
+        this.localeValue = newVal;
+      },
     },
     type: {
-        handler(newVal) {
-            this.typeValue = newVal;   
-        }
+      handler(newVal) {
+        this.typeValue = newVal;
+      },
     },
     mode: {
-        handler(newVal) {
-            this.modeValue = newVal;   
-        }
+      handler(newVal) {
+        this.modeValue = newVal;
+      },
     },
     firstTime: {
-        handler(newVal) {
-            this.firstTimeValue = newVal;   
-        }
+      handler(newVal) {
+        this.firstTimeValue = newVal;
+      },
     },
     intervalCount: {
-        handler(newVal) {
-            this.intervalCountValue = newVal;   
-        }
+      handler(newVal) {
+        this.intervalCountValue = newVal;
+      },
     },
     extraBtn: {
-        handler(newVal) {
-            this.extraBtnData = newVal;   
-        }
+      handler(newVal) {
+        this.extraBtnData = newVal;
+      },
     },
   },
 };
