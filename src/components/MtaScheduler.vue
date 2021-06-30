@@ -1,6 +1,5 @@
 <template>  
   <div style="width: 100%; overflow:auto">
-    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
     <div ref="schedulerContainer" style="position:relative">
       <v-toolbar
         id="toolbar"
