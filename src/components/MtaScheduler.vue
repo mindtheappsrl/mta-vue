@@ -1,5 +1,5 @@
 <template>  
-    <div style="width: 100%; overflow:auto">
+    <div style="width: 100%; overflow:auto" class="test6454">
       <div ref="schedulerContainer" style="position:relative">
         <v-toolbar
           id="toolbar"
@@ -130,7 +130,6 @@
 <script>
 import moment from "moment";
 import EventModel from '../models/event.model'
-import 'vuetify/dist/vuetify.min.css'
 export default {
   inheritAttrs: false,
   props: {
@@ -299,3 +298,7 @@ export default {
   },
 };
 </script>
+<style>
+.test6454 {
+  color: red
+}
