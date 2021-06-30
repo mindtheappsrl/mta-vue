@@ -1,108 +1,87 @@
 <template>  
-    <div style="width: 100%; overflow:auto" class="test6454">
-      <div ref="schedulerContainer" style="position:relative">
-        <v-toolbar
-          id="toolbar"
+  <div style="width: 100%; overflow:auto">
+    <div ref="schedulerContainer" style="position:relative">
+      <v-toolbar
+        id="toolbar"
+        dense
+        flat
+        class="grey lighten-4"
+        :class="{
+          'mr-4':
+            (categories.length > 5 && typeValue === 'category') || typeValue === 'week',
+        }"
+      >
+        <v-btn rounded icon @click="prev()">
+          <v-icon>mdi-chevron-left</v-icon>
+        </v-btn>
+        <h3 class="text--secondary text-center" style="min-width: 210px">
+          {{ moment(value).format("dddd DD MMMM YYYY") }}
+        </h3>
+        <v-btn rounded icon @click="next()">
+          <v-icon>mdi-chevron-right</v-icon>
+        </v-btn>
+        <v-btn-toggle
+          v-model="typeValue"
+          rounded
           dense
-          flat
-          class="grey lighten-4"
-          :class="{
-            'mr-4':
-              (categories.length > 5 && typeValue === 'category') || typeValue === 'week',
-          }"
+          color="secondary darken-2"
+          class="ml-5"
         >
-          <v-btn rounded icon @click="prev()">
-            <v-icon>mdi-chevron-left</v-icon>
-          </v-btn>
-          <h3 class="text--secondary text-center" style="min-width: 210px">
-            {{ moment(value).format("dddd DD MMMM YYYY") }}
-          </h3>
-          <v-btn rounded icon @click="next()">
-            <v-icon>mdi-chevron-right</v-icon>
-          </v-btn>
-          <v-btn-toggle
-            v-model="typeValue"
-            rounded
-            dense
-            color="secondary darken-2"
-            class="ml-5"
-          >
-            <v-btn value="category"> Giorno </v-btn>
+          <v-btn value="category"> Giorno </v-btn>
 
-            <v-btn value="week"> Settimana </v-btn>
+          <v-btn value="week"> Settimana </v-btn>
 
-            <v-btn value="month"> Mese </v-btn>
-          </v-btn-toggle>
-          <v-switch
-            v-if="typeValue != 'month'"
-            v-model="showFullDay"
-            inset
-            class="ml-5 mt-5"
-            color="primary"
-            label="Mostra intera giornata"
-            @change="setCalendarViewInterval"
-          >
-          </v-switch>
-          <v-btn
-            v-if="typeValue == 'category' && !proposalData && extraBtnData.visible"
-            elevation="0"
-            rounded
-            class="ml-5"
-            color="orange"
-            dark
-            @click="extraBtnData.fn"
-          >
-            {{extraBtnData.text}}
-          </v-btn>
-        </v-toolbar>
-        <v-calendar
-          v-on="$listeners"
-          ref="calendar"
-          v-model="value"
-          :locale="localeValue"
-          :type="typeValue"
-          :events="eventsData"
-          :event-overlap-mode="modeValue"
-          :event-overlap-threshold="30"
-          :event-color="getEventColor"
-          :first-time="firstTimeValue"
-          :interval-count="intervalCountValue"
-          :interval-minutes="15"
-          :interval-format="(locale, getOptions) => locale.time"
-          :mobile-breakpoint="0"
-          :event-more="false"
-          :categories="categories"
-          :weekdays="[1, 2, 3, 4, 5, 6, 0]"
-          @change="getEvents"
-          @click:event="showDetails"
-          @click:date="goToDate"
+          <v-btn value="month"> Mese </v-btn>
+        </v-btn-toggle>
+        <v-switch
+          v-if="typeValue != 'month'"
+          v-model="showFullDay"
+          inset
+          class="ml-5 mt-5"
+          color="primary"
+          label="Mostra intera giornata"
+          @change="setCalendarViewInterval"
         >
-          <template #event="{ event }">
-            <v-tooltip top>
-              <template v-slot:activator="{ on, attrs }">
-                <div v-bind="attrs" v-on="on">
-                  <div class="pl-1" style="text-shadow: 1px 1px 2px rgb(0 0 0);">
-                    <strong>{{ event.title }}</strong>
-                    <br />
-                    <span>
-                      {{ moment(event.start).format("HH:mm") }} -
-                      {{ moment(event.end).format("HH:mm") }}
-                    </span>
-                    <br />
-                    <small v-if="event.subtitle" class="font-weight-bold mr-2">
-                      {{ event.subtitle }}
-                    </small>
-                  </div>
-                  <div
-                    v-if="event.isChecked"
-                    style="position: absolute; top: -1px; right: 3px"
-                  >
-                    <v-icon color="white">mdi-check</v-icon>
-                  </div>
-                </div>
-              </template>
-              <span>
-                <div>
+        </v-switch>
+        <v-btn
+          v-if="typeValue == 'category' && !proposalData && extraBtnData.visible"
+          elevation="0"
+          rounded
+          class="ml-5"
+          color="orange"
+          dark
+          @click="extraBtnData.fn"
+        >
+          {{extraBtnData.text}}
+        </v-btn>
+      </v-toolbar>
+      <v-calendar
+        v-on="$listeners"
+        ref="calendar"
+        v-model="value"
+        :locale="localeValue"
+        :type="typeValue"
+        :events="eventsData"
+        :event-overlap-mode="modeValue"
+        :event-overlap-threshold="30"
+        :event-color="getEventColor"
+        :first-time="firstTimeValue"
+        :interval-count="intervalCountValue"
+        :interval-minutes="15"
+        :interval-format="(locale, getOptions) => locale.time"
+        :mobile-breakpoint="0"
+        :event-more="false"
+        :categories="categories"
+        :weekdays="[1, 2, 3, 4, 5, 6, 0]"
+        @change="getEvents"
+        @click:event="showDetails"
+        @click:date="goToDate"
+      >
+        <template #event="{ event }">
+          <v-tooltip top>
+            <template v-slot:activator="{ on, attrs }">
+              <div v-bind="attrs" v-on="on">
+                <div class="pl-1" style="text-shadow: 1px 1px 2px rgb(0 0 0);">
                   <strong>{{ event.title }}</strong>
                   <br />
                   <span>
@@ -116,16 +95,37 @@
                 </div>
                 <div
                   v-if="event.isChecked"
-                  style="position: absolute; top: 3px; right: 3px"
+                  style="position: absolute; top: -1px; right: 3px"
                 >
                   <v-icon color="white">mdi-check</v-icon>
                 </div>
-              </span>
-            </v-tooltip>
-          </template>
-        </v-calendar>
-      </div>
+              </div>
+            </template>
+            <span>
+              <div>
+                <strong>{{ event.title }}</strong>
+                <br />
+                <span>
+                  {{ moment(event.start).format("HH:mm") }} -
+                  {{ moment(event.end).format("HH:mm") }}
+                </span>
+                <br />
+                <small v-if="event.subtitle" class="font-weight-bold mr-2">
+                  {{ event.subtitle }}
+                </small>
+              </div>
+              <div
+                v-if="event.isChecked"
+                style="position: absolute; top: 3px; right: 3px"
+              >
+                <v-icon color="white">mdi-check</v-icon>
+              </div>
+            </span>
+          </v-tooltip>
+        </template>
+      </v-calendar>
     </div>
+  </div>
 </template>
 <script>
 import moment from "moment";
@@ -298,8 +298,3 @@ export default {
   },
 };
 </script>
-<style>
-.test6454 {
-  color: red
-}
-</style>

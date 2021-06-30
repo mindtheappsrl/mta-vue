@@ -1,4 +1,4 @@
-# npmvue
+# mta-vue
 
 ## Project setup
 ```
