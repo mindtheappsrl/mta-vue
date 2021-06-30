@@ -26,7 +26,7 @@
         color="secondary darken-2"
         class="ml-5"
       >
-        <v-btn value="category"> Giorno </v-btn>
+        <v-btn :value="hasCategoryView ? 'category' : 'day'"> Giorno </v-btn>
 
         <v-btn value="week"> Settimana </v-btn>
 
@@ -58,7 +58,6 @@
       <div ref="schedulerContainer">
         <v-calendar
           v-on="$listeners"
-          class="custom-calendar"
           ref="calendar"
           v-model="value"
           :locale="localeValue"
@@ -78,6 +77,7 @@
           @change="getEvents"
           @click:event="showDetails"
           @click:date="goToDate"
+          style="height: 700px"
         >
           <template #event="{ event }">
             <v-tooltip top>
@@ -127,12 +127,7 @@
           </template>
         </v-calendar>
       </div>
-    </div>    
-    <style>
-      .custom-calendar.v-calendar:not(.v-calendar-monthly) {
-        height: 700px !important;
-      }
-    </style>
+    </div>
   </div>
 </template>
 <script>
@@ -144,6 +139,10 @@ export default {
     events: {
       type: Array,
       default: () => [],
+    },
+    hasCategoryView: {
+      type: Boolean,
+      default: () => true,
     },
     proposal: {
       type: Object,
@@ -196,6 +195,7 @@ export default {
   }),
   mounted() {
     moment.locale(this.locale);
+    this.hasCategoryView ? this.typeValue = 'category' : this.typeValue = 'day'
   },
   methods: {
     setCalWidth() {
@@ -227,8 +227,8 @@ export default {
       if (nativeEvent) nativeEvent.stopPropagation()
     },
     goToDate(date) {
-      if (this.typeValue !== 'category') {
-        this.typeValue = 'category'
+      if (this.typeValue !== 'category' && this.typeValue !== 'day') {
+        this.hasCategoryView ? this.typeValue = 'category' : this.typeValue = 'day'
         this.value = date.date
       }
     },
