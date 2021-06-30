@@ -68131,7 +68131,7 @@ var vuetify_default = /*#__PURE__*/__webpack_require__.n(vuetify);
 // EXTERNAL MODULE: ./node_modules/vuetify/dist/vuetify.min.css
 var vuetify_min = __webpack_require__("bf40");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"a1fbd5e8-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=31f0679e&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ece86c7e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=e89a91e0&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"position":"relative"}},[_c('v-toolbar',{staticClass:"grey lighten-4",class:{
       'mr-4':
         (_vm.categories.length > 5 && _vm.typeValue === 'category') ||
@@ -68145,7 +68145,7 @@ return [_c('div',_vm._g(_vm._b({},'div',attrs,false),on),[_c('div',{staticClass:
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=31f0679e&
+// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=e89a91e0&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("a9e3");
@@ -68402,12 +68402,12 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
   updated: function updated() {
     if (this.$refs && this.$refs.calendar) {
       if (this.typeValue == "month") {
-        this.$refs.calendar.el.style.height = "auto";
+        this.$refs.calendar.$el.style.height = "auto";
       } else {
-        this.$refs.calendar.el.style.height = "700px";
+        this.$refs.calendar.$el.style.height = "700px";
       }
 
-      console.log(this.$refs.calendar.el.style.height);
+      console.log(this.$refs.calendar.$el.style.height);
     }
   },
   methods: {
