@@ -132,7 +132,11 @@ import moment from "moment";
 import EventModel from "../models/event.model";
 export default {
   inheritAttrs: false,
-  props: {
+  props: {    
+    value: {
+      type: String,
+      default: () => moment().format("YYYY-MM-DD"),
+    },
     events: {
       type: Array,
       default: () => [],
@@ -178,7 +182,7 @@ export default {
   },
   data: () => ({
     moment,
-    value: moment().format("YYYY-MM-DD"),
+    currentDate: moment().format("YYYY-MM-DD"),
     categories: [],
     eventsData: [],
     proposalData: null,
@@ -278,6 +282,11 @@ export default {
     },
   },
   watch: {
+    value: {
+      handler(newVal) {
+        this.currentDate = newVal;
+      },
+    },
     events: {
       handler(newVal) {
         if (newVal && newVal.length) {
