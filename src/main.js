@@ -1,10 +1,20 @@
 import Vue from 'vue'
-import vuetify from '@/plugins/vuetify'
-import App from "./App"; 
 
-Vue.config.productionTip = false
+import Vuetify from 'vuetify'
+Vue.use(Vuetify)
 
-new Vue({
-  vuetify,
-  render: h => h(App),
-}).$mount('#app')
+// import vuetify from '@/plugins/vuetify'
+// import App from "./App.vue"
+
+// Vue.config.productionTip = false
+
+// new Vue({
+//   vuetify,
+//   render: h => h(App),
+// }).$mount('#app')
+
+import MtaScheduler from "./components/MtaScheduler.vue"; 
+ 
+export {
+  MtaScheduler
+};

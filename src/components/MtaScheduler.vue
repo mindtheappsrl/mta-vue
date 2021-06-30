@@ -130,6 +130,7 @@
 <script>
 import moment from "moment";
 import EventModel from '../models/event.model'
+import 'vuetify/dist/vuetify.min.css'
 export default {
   inheritAttrs: false,
   props: {
