@@ -16,8 +16,7 @@
     "core-js": "^3.6.5",
     "moment": "^2.29.1",
     "vue": "^2.6.11",
-    "vuetify": "^2.5.5",
-    "vuetify-loader": "^1.7.2"
+    "vuetify": "^2.5.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.0",
