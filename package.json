@@ -1,23 +1,16 @@
 {
   "name": "mta-vue",
-  "version": "0.2.15",
+  "version": "0.3.1",
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mindtheappsrl/mta-vue.git"
-  },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "npm version patch -f && vue-cli-service build",
-    "build-lib": "npm version patch -f && vue-cli-service build --target lib --name mta-vue src/main.js",
+    "build": "vue-cli-service build",
+    "build-bundle": "npm version patch -f && vue-cli-service build --target lib --name mta-vue ./src/main.js",
     "lint": "vue-cli-service lint"
   },
-  "main": "dist/mta-vue.common.js",
   "dependencies": {
     "core-js": "^3.6.5",
-    "moment": "^2.29.1",
-    "vue": "^2.6.11",
-    "vuetify": "^2.5.5"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.0",
