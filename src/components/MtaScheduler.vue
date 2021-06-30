@@ -130,12 +130,7 @@
 <script>
 import moment from "moment";
 import EventModel from '../models/event.model'
-import { VBtn, VTooltip } from 'vuetify/lib'
 export default {
-  components: {
-    VBtn,
-    VTooltip
-  },
   inheritAttrs: false,
   props: {
     events: {
