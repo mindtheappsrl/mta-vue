@@ -203,7 +203,6 @@ export default {
       } else {
         this.$refs.calendar.$el.style.height = "700px";
       }
-      console.log(this.$refs.calendar.$el.style.height);
     }
   },
   methods: {
