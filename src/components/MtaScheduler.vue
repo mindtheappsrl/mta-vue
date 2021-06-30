@@ -203,11 +203,11 @@ export default {
   updated() {
     if (this.$refs && this.$refs.calendar) {
       if (this.typeValue == "month") {
-        this.$refs.calendar.style.height = "auto";
+        this.$refs.calendar.el.style.height = "auto";
       } else {
-        this.$refs.calendar.style.height = "700px";
+        this.$refs.calendar.el.style.height = "700px";
       }
-      console.log(this.$refs.calendar.style.height);
+      console.log(this.$refs.calendar.el.style.height);
     }
   },
   methods: {
