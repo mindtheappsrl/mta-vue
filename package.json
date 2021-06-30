@@ -1,11 +1,11 @@
 {
   "name": "mta-vue",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-bundle": "npm version patch -f && vue-cli-service build --target lib --name mta-vue ./src/main.js",
+    "build-bundle": "npm version patch -f && vue-cli-service build --target lib --name mta-vue ./src/components/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
