@@ -5,11 +5,6 @@
       dense
       flat
       class="grey lighten-4"
-      :class="{
-        'mr-4':
-          (categories.length > 5 && typeValue === 'category') ||
-          typeValue === 'week',
-      }"
     >
       <v-btn rounded icon @click="prev()">
         <v-icon>mdi-chevron-left</v-icon>
@@ -21,6 +16,7 @@
         <v-icon>mdi-chevron-right</v-icon>
       </v-btn>
       <v-btn-toggle
+        mandatory
         v-model="typeValue"
         rounded
         dense
