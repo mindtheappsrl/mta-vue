@@ -290,14 +290,14 @@ export default {
     events: {
       handler(newVal) {
         if (newVal && newVal.length) {
-          this.eventsData = newVal.filter((v) => typeof v !== 'undefined').map((e) => new EventModel(e));
+          this.eventsData = newVal.map((e) => new EventModel(e));
           this.eventsData.forEach((e) => {
             if (!e.timed) {
               e.start = moment(e.start).format("YYYY-MM-DD");
               e.end = null;
             }
           });
-          const list = newVal.filter((v) => typeof v !== 'undefined').map((e) => e.category);
+          const list = newVal.map((e) => e.category);
           this.categories = list.filter((v, i) => list.indexOf(v) == i);
         } else {
           this.eventsData = [];
