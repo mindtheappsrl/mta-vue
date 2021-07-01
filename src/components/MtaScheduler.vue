@@ -241,7 +241,7 @@ export default {
       const daysOutOfRange = this.$refs.calendar.$el.querySelectorAll(".v-calendar-weekly__day.v-outside");
       daysOutOfRange.forEach((day) => {
       console.log(day.classList);
-        if(day.classList.includes('v-outside')) {
+        if(day.classList.contains('v-outside')) {
           day.children[0].style.display = 'none';
         } else {
           day.children[0].style.display = 'block';
