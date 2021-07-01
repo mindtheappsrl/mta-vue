@@ -55,6 +55,7 @@
       <div ref="schedulerContainer">
         <v-calendar
           v-on="$listeners"
+          v-bind="$attrs"
           ref="calendar"
           v-model="currentDate"
           :locale="localeValue"
