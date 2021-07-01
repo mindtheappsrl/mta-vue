@@ -172,9 +172,13 @@ export default {
       type: Number,
       default: () => 8,
     },
+    lastTime: {
+      type: Number,
+      default: () => 19,
+    },
     intervalCount: {
       type: Number,
-      default: () => 60,
+      default: () => 44,
     },
     extraBtn: {
       type: Object,
@@ -197,7 +201,7 @@ export default {
     typeValue: "category",
     modeValue: "stack",
     firstTimeValue: "08:00",
-    intervalCountValue: 60,
+    intervalCountValue: 44,
     extraBtnData: {},
     showFullDay: false,
   }),
@@ -220,6 +224,9 @@ export default {
     intToTime(i) {
       return i < 10 ? `0${i}:00` : `${i}:00`;
     },
+    countIntervals() {
+      return (this.lastTime - this.firstTime) * 4;
+    },
     setCalWidth() {
       if (
         (this.categories.length > 5 && this.typeValue === "category") ||
@@ -237,7 +244,7 @@ export default {
           this.intervalCountValue = 96;
         } else {
           this.firstTimeValue = this.intToTime(this.firstTime);
-          this.intervalCountValue = this.intervalCount;
+          this.intervalCountValue = this.countIntervals();
         }
       }
     },
@@ -346,7 +353,7 @@ export default {
     },
     intervalCount: {
       handler(newVal) {
-        this.intervalCountValue = 1440 / newVal;
+        this.intervalCountValue = newVal;
       },
     },
     extraBtn: {
