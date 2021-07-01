@@ -65,7 +65,7 @@
           :event-color="getEventColor"
           :first-time="firstTimeValue"
           :interval-count="intervalCountValue"
-          :interval-minutes="15"
+          :interval-minutes="intervalMinutesValue"
           :interval-format="(locale, getOptions) => locale.time"
           :mobile-breakpoint="0"
           :event-more="false"
@@ -202,6 +202,7 @@ export default {
     modeValue: "stack",
     firstTimeValue: "08:00",
     intervalCountValue: 44,
+    intervalMinutesValue: 15,
     extraBtnData: {},
     showFullDay: false,
   }),
@@ -225,7 +226,7 @@ export default {
       return i < 10 ? `0${i}:00` : `${i}:00`;
     },
     countIntervals() {
-      return (this.lastTime - this.firstTime) * 4;
+      return (this.lastTime - this.firstTime) * (1440 / (60 / this.intervalMinutesValue));
     },
     setCalWidth() {
       if (
@@ -354,6 +355,11 @@ export default {
     intervalCount: {
       handler(newVal) {
         this.intervalCountValue = newVal;
+      },
+    },
+    intervalMinutes: {
+      handler(newVal) {
+        this.intervalMinutesValue = newVal;
       },
     },
     extraBtn: {
