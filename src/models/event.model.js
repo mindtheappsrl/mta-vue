@@ -8,6 +8,7 @@ export default function(event) {
     this.isChecked = event ? event.isChecked : false;
     this.extra = event ? event.extra : null;
     this.category = event ? event.category : null;
+    this.categoryId = event ? event.categoryId : null;
     this.timed = event && event.timed !== undefined ? event.timed : true;
     for (var prop in event) {
       Object.prototype.hasOwnProperty.call(event, prop)

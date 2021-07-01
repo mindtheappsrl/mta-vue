@@ -74,6 +74,7 @@
           @change="getEvents"
           @click:event="showDetails"
           @click:date="goToDate"
+          @click:interval="emitDateTime"
         >
           <template #event="{ event }">
             <v-tooltip top>
@@ -213,7 +214,7 @@ export default {
       } else {
         this.$refs.calendar.$el.style.maxHeight = "700px";
       }
-      
+
       if(this.headOnly) {
         this.$refs.calendar.$el.style.maxHeight = "auto";
         this.$refs.calendar.$el.children[0].style.minHeight = "500px";
@@ -256,6 +257,10 @@ export default {
           : (this.typeValue = "day");
         this.currentDate = date.date;
       }
+    },
+    emitDateTime(date) {
+      console.log(date);
+      return date;
     },
     getTimeRange(event) {
       const start = moment(event.start);
