@@ -217,6 +217,13 @@ export default {
     }
   },
   methods: {
+    intToTime(i) {
+      if(i < 10){
+        this.firstTimeValue = `0${i}:00`;
+      } else {
+        this.firstTimeValue = `${i}:00`;
+      }
+    },
     setCalWidth() {
       if (
         (this.categories.length > 5 && this.typeValue === "category") ||
@@ -233,7 +240,7 @@ export default {
           this.firstTimeValue = "00:00";
           this.intervalCountValue = 96;
         } else {
-          this.firstTimeValue = this.firstTime;
+          this.firstTimeValue = this.intToTime(this.firstTime);
           this.intervalCountValue = this.intervalCount;
         }
       }
@@ -338,11 +345,7 @@ export default {
     },
     firstTime: {
       handler(newVal) {
-        if(newVal < 10){
-          this.firstTimeValue = `0${newVal}:00`;
-        } else {
-          this.firstTimeValue = `${newVal}:00`;
-        }
+        this.intToTime(newVal)
       },
     },
     intervalCount: {
