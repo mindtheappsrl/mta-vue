@@ -176,10 +176,6 @@ export default {
       type: Number,
       default: () => 19,
     },
-    intervalCount: {
-      type: Number,
-      default: () => 44,
-    },
     intervalMinutes: {
       type: Number,
       default: () => 15,
@@ -215,6 +211,7 @@ export default {
     this.hasCategoryView
       ? (this.typeValue = "category")
       : (this.typeValue = "day");
+    this.setCalendarViewInterval();
   },
   updated() {
     if (this.$refs && this.$refs.calendar) {
@@ -359,12 +356,6 @@ export default {
     firstTime: {
       handler(newVal) {
         this.intToTime(newVal)
-      },
-      immediate: true
-    },
-    intervalCount: {
-      handler(newVal) {
-        this.intervalCountValue = newVal;
       },
       immediate: true
     },
