@@ -290,6 +290,7 @@ export default {
     events: {
       handler(newVal) {
         if (newVal && newVal.length) {
+          newVal = newVal.filter(v => v !== undefined)
           this.eventsData = newVal.map((e) => new EventModel(e));
           this.eventsData.forEach((e) => {
             if (!e.timed) {
