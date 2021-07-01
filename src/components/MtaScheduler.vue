@@ -230,7 +230,7 @@ export default {
       return i < 10 ? `0${i}:00` : `${i}:00`;
     },
     countIntervals() {
-      return (this.lastTime - this.firstTime) * (24 * (60 / this.intervalMinutesValue));
+      return (this.lastTime - this.firstTime) * (60 / this.intervalMinutesValue);
     },
     setCalWidth() {
       if (
