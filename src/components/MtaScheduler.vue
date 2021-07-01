@@ -205,11 +205,6 @@ export default {
     this.hasCategoryView
       ? (this.typeValue = "category")
       : (this.typeValue = "day");
-    if(this.headOnly) {
-      this.$refs.calendar.$el.style.maxHeight = "auto";
-      this.$refs.calendar.$el.children[0].style.minHeight = "500px";
-      this.$refs.calendar.$el.children[1].style.display = "none";
-    }
   },
   updated() {
     if (this.$refs && this.$refs.calendar) {
@@ -217,6 +212,12 @@ export default {
         this.$refs.calendar.$el.style.maxHeight = "auto";
       } else {
         this.$refs.calendar.$el.style.maxHeight = "700px";
+      }
+      
+      if(this.headOnly) {
+        this.$refs.calendar.$el.style.maxHeight = "auto";
+        this.$refs.calendar.$el.children[0].style.minHeight = "500px";
+        this.$refs.calendar.$el.children[1].style.display = "none";
       }
     }
   },
