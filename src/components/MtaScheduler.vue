@@ -170,8 +170,8 @@ export default {
       default: () => "stack",
     },
     firstTime: {
-      type: String,
-      default: () => "05:00",
+      type: Number,
+      default: () => 8,
     },
     intervalCount: {
       type: Number,
@@ -197,7 +197,7 @@ export default {
     localeValue: "it",
     typeValue: "category",
     modeValue: "stack",
-    firstTimeValue: "05:00",
+    firstTimeValue: "08:00",
     intervalCountValue: 60,
     extraBtnData: {},
     showFullDay: false,
@@ -214,12 +214,6 @@ export default {
         this.$refs.calendar.$el.style.maxHeight = "auto";
       } else {
         this.$refs.calendar.$el.style.maxHeight = "700px";
-      }
-
-      if(this.headOnly) {
-        this.$refs.calendar.$el.style.maxHeight = "auto";
-        this.$refs.calendar.$el.children[0].style.minHeight = "500px";
-        this.$refs.calendar.$el.children[1].style.display = "none";
       }
     }
   },
@@ -240,7 +234,7 @@ export default {
           this.firstTimeValue = "00:00";
           this.intervalCountValue = 96;
         } else {
-          this.firstTimeValue = "05:00";
+          this.firstTimeValue = "08:00";
           this.intervalCountValue = 60;
         }
       }
@@ -345,12 +339,16 @@ export default {
     },
     firstTime: {
       handler(newVal) {
-        this.firstTimeValue = newVal;
+        if(newVal < 10){
+          this.firstTimeValue = `0${newVal}:00`;
+        } else {
+          this.firstTimeValue = `${newVal}:00`;
+        }
       },
     },
     intervalCount: {
       handler(newVal) {
-        this.intervalCountValue = newVal;
+        this.intervalCountValue = 1440 / newVal;
       },
     },
     extraBtn: {
@@ -358,6 +356,15 @@ export default {
         this.extraBtnData = newVal;
       },
     },
-  },
+    headOnly: {
+      handler(newVal) {
+        if(newVal) {
+          this.$refs.calendar.$el.style.maxHeight = "auto";
+          this.$refs.calendar.$el.children[0].style.minHeight = "500px";
+          this.$refs.calendar.$el.children[1].style.display = "none";
+        }
+      }
+    }
+  }
 };
 </script>
