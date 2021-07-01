@@ -226,6 +226,9 @@ export default {
     intToTime(i) {
       return i < 10 ? `0${i}:00` : `${i}:00`;
     },
+    countFullDayIntervals() {
+      return 24 * (60 / this.intervalMinutesValue);
+    },
     countIntervals() {
       return (this.lastTime - this.firstTime) * (60 / this.intervalMinutesValue);
     },
@@ -243,7 +246,7 @@ export default {
       if (this.$refs && this.$refs.calendar) {
         if (this.showFullDay) {
           this.firstTimeValue = "00:00";
-          this.intervalCountValue = 96;
+          this.intervalCountValue = this.countFullDayIntervals();
         } else {
           this.firstTimeValue = this.intToTime(this.firstTime);
           this.intervalCountValue = this.countIntervals();
