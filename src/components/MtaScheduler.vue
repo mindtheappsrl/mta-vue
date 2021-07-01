@@ -224,9 +224,11 @@ export default {
           this.$refs.calendar.$el.style.maxHeight = "auto";
         if(this.typeValue != "month"){
           this.$refs.calendar.$el.children[0].style.minHeight = "500px";
+          this.$refs.calendar.$el.children[0].querySelector(".v-calendar-category__columns").style.height = "100%";
           this.$refs.calendar.$el.children[1].style.display = "none";
         } else {
           this.$refs.calendar.$el.children[0].style.minHeight = "auto";
+          this.$refs.calendar.$el.children[0].querySelector(".v-calendar-category__columns").style.height = "auto";
           this.$refs.calendar.$el.children[1].style.display = "flex";
         }
       }
