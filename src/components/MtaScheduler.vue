@@ -10,7 +10,7 @@
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
       <h3 class="text--secondary text-center" style="min-width: 210px">
-        {{ moment(value).format("dddd DD MMMM YYYY") }}
+        {{ moment(currentDate).format("dddd DD MMMM YYYY") }}
       </h3>
       <v-btn rounded icon @click="next()">
         <v-icon>mdi-chevron-right</v-icon>
@@ -56,7 +56,7 @@
         <v-calendar
           v-on="$listeners"
           ref="calendar"
-          v-model="value"
+          v-model="currentDate"
           :locale="localeValue"
           :type="typeValue"
           :events="eventsData"
@@ -103,7 +103,15 @@
               </template>
               <span>
                 <div>
-                  <strong>{{ event.title }}</strong>
+                  <strong>
+                    {{ event.title }}
+                    <span
+                      v-if="event.isChecked"
+                      class="ml-3"
+                    >
+                      <v-icon color="white">mdi-check</v-icon>
+                    </span>
+                  </strong>
                   <br />
                   <span>
                     {{ getTimeRange(event) }}
@@ -112,13 +120,7 @@
                   <small v-if="event.subtitle" class="font-weight-bold mr-2">
                     {{ event.subtitle }}
                   </small>
-                </div>
-                <div
-                  v-if="event.isChecked"
-                  style="position: absolute; top: 3px; right: 3px"
-                >
-                  <v-icon color="white">mdi-check</v-icon>
-                </div>
+                </div>                
               </span>
             </v-tooltip>
           </template>
@@ -242,7 +244,7 @@ export default {
         this.hasCategoryView
           ? (this.typeValue = "category")
           : (this.typeValue = "day");
-        this.value = date.date;
+        this.currentDate = date.date;
       }
     },
     getTimeRange(event) {
@@ -274,7 +276,7 @@ export default {
         this.$emit("rangeChanged", {
           start,
           end,
-          date: this.value,
+          date: this.currentDate,
           showFullDay: this.showFullDay,
         });
         this.setCalWidth();
