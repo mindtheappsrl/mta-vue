@@ -220,6 +220,11 @@ export default {
       } else {
         this.$refs.calendar.$el.style.maxHeight = "700px";
       }
+      if (this.headOnly) {
+        this.$refs.calendar.$el.style.maxHeight = "auto";
+        this.$refs.calendar.$el.children[0].style.minHeight = "500px";
+        this.$refs.calendar.$el.children[1].style.display = "none";
+      }
     }
   },
   methods: {
@@ -372,16 +377,6 @@ export default {
       handler(newVal) {
         this.extraBtnData = newVal;
       },
-    },
-    headOnly: {
-      handler(newVal) {
-        if(newVal && this.$refs && this.$refs.calendar) {
-          this.$refs.calendar.$el.style.maxHeight = "auto";
-          this.$refs.calendar.$el.children[0].style.minHeight = "500px";
-          this.$refs.calendar.$el.children[1].style.display = "none";
-        }
-      },
-      immediate: true
     }
   }
 };
