@@ -238,7 +238,7 @@ export default {
           }
         }
       }
-      const daysOutOfRange = this.$refs.calendar.$el.getElementsByClassName(".v-calendar-weekly__day.v-outside");
+      const daysOutOfRange = this.$refs.calendar.$el.querySelectorAll(".v-calendar-weekly__day.v-outside");
       console.log(daysOutOfRange);
       daysOutOfRange.forEach((day) => {
         day.children[0].style.display = 'none';
