@@ -55,7 +55,6 @@
       <div ref="schedulerContainer">
         <v-calendar
           v-on="$listeners"
-          v-bind="$attrs"
           ref="calendar"
           v-model="currentDate"
           :locale="localeValue"
@@ -234,8 +233,8 @@ export default {
           this.firstTimeValue = "00:00";
           this.intervalCountValue = 96;
         } else {
-          this.firstTimeValue = "08:00";
-          this.intervalCountValue = 60;
+          this.firstTimeValue = this.firstTime;
+          this.intervalCountValue = this.intervalCount;
         }
       }
     },
