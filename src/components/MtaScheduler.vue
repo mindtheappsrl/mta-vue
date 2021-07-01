@@ -230,7 +230,7 @@ export default {
       return i < 10 ? `0${i}:00` : `${i}:00`;
     },
     countIntervals() {
-      return (this.lastTime - this.firstTime) * (1440 / (60 / this.intervalMinutesValue));
+      return (this.lastTime - this.firstTime) * (24 * (60 / this.intervalMinutesValue));
     },
     setCalWidth() {
       if (
@@ -311,6 +311,7 @@ export default {
       handler(newVal) {
         this.currentDate = newVal;
       },
+      immediate: true
     },
     events: {
       handler(newVal) {
@@ -335,35 +336,41 @@ export default {
       handler(newVal) {
         this.porposalData = newVal;
       },
+      immediate: true
     },
     locale: {
       handler(newVal) {
         this.localeValue = newVal;
       },
+      immediate: true
     },
     type: {
       handler(newVal) {
         this.typeValue = newVal;
       },
+      immediate: true
     },
     mode: {
       handler(newVal) {
         this.modeValue = newVal;
       },
+      immediate: true
     },
     firstTime: {
       handler(newVal) {
         this.intToTime(newVal)
       },
+      immediate: true
     },
     intervalCount: {
       handler(newVal) {
         this.intervalCountValue = newVal;
       },
+      immediate: true
     },
     intervalMinutes: {
       handler(newVal) {
-        this.intervalMinutesValue = newVal;
+        this.intervalMinutesValue = newVal > 0 && newVal < 61 ? newVal : 15;
       },
       immediate: true
     },
@@ -379,7 +386,8 @@ export default {
           this.$refs.calendar.$el.children[0].style.minHeight = "500px";
           this.$refs.calendar.$el.children[1].style.display = "none";
         }
-      }
+      },
+      immediate: true
     }
   }
 };
