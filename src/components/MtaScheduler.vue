@@ -365,6 +365,7 @@ export default {
       handler(newVal) {
         this.intervalMinutesValue = newVal;
       },
+      immediate: true
     },
     extraBtn: {
       handler(newVal) {
