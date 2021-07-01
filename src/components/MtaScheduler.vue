@@ -180,6 +180,10 @@ export default {
       type: Number,
       default: () => 44,
     },
+    intervalMinutes: {
+      type: Number,
+      default: () => 15,
+    },
     extraBtn: {
       type: Object,
       default: () => {
