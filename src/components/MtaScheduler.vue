@@ -375,7 +375,7 @@ export default {
     },
     headOnly: {
       handler(newVal) {
-        if(newVal) {
+        if(newVal && this.$refs && this.$refs.calendar) {
           this.$refs.calendar.$el.style.maxHeight = "auto";
           this.$refs.calendar.$el.children[0].style.minHeight = "500px";
           this.$refs.calendar.$el.children[1].style.display = "none";
