@@ -238,14 +238,14 @@ export default {
           }
         }
       }
-      const reset = this.$refs.calendar.$el.querySelectorAll(".v-calendar-weekly__day");
-      reset.forEach((day) => {
-        day.children[0].style.display = 'block';
-      }); 
       const daysOutOfRange = this.$refs.calendar.$el.querySelectorAll(".v-calendar-weekly__day.v-outside");
-      console.log(daysOutOfRange);
       daysOutOfRange.forEach((day) => {
-        day.children[0].style.display = 'none';
+      console.log(day.classList);
+        if(day.classList.includes('v-outside')) {
+          day.children[0].style.display = 'none';
+        } else {
+          day.children[0].style.display = 'block';
+        }
       }); 
     }
   },
