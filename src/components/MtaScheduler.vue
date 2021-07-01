@@ -225,6 +225,10 @@ export default {
         this.$refs.calendar.$el.children[0].style.minHeight = "500px";
         this.$refs.calendar.$el.children[1].style.display = "none";
       }
+      const daysOutOfRange = this.$refs.calendar.$el.querySelectorAll(".v-calendar-weekly__day.v-outside .v-calendar-weekly__day-label");
+      daysOutOfRange.forEach((day) => {
+        day.style.display = 'none';
+      }); 
     }
   },
   methods: {
