@@ -221,13 +221,18 @@ export default {
         this.$refs.calendar.$el.style.maxHeight = "700px";
       }
       if (this.headOnly) {
-        this.$refs.calendar.$el.style.maxHeight = "auto";
-        this.$refs.calendar.$el.children[0].style.minHeight = "500px";
-        this.$refs.calendar.$el.children[1].style.display = "none";
+          this.$refs.calendar.$el.style.maxHeight = "auto";
+        if(this.typeValue != "month"){
+          this.$refs.calendar.$el.children[0].style.minHeight = "500px";
+          this.$refs.calendar.$el.children[1].style.display = "none";
+        } else {
+          this.$refs.calendar.$el.children[0].style.minHeight = "auto";
+          this.$refs.calendar.$el.children[1].style.display = "flex";
+        }
       }
-      const daysOutOfRange = this.$refs.calendar.$el.querySelectorAll(".v-calendar-weekly__day, .v-outside");
+      const daysOutOfRange = this.$refs.calendar.$el.querySelectorAll(".v-calendar-weekly__day.v-outside");
       daysOutOfRange.forEach((day) => {
-        day.querySelector(".v-calendar-weekly__day-label").style.display = 'none';
+        day.children[0].style.display = 'none';
       }); 
     }
   },
