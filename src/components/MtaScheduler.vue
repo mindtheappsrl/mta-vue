@@ -259,8 +259,7 @@ export default {
       }
     },
     emitDateTime(date) {
-      console.log(date);
-      return date;
+      this.$emit("timeClick", date);
     },
     getTimeRange(event) {
       const start = moment(event.start);
