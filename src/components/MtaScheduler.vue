@@ -218,11 +218,7 @@ export default {
   },
   methods: {
     intToTime(i) {
-      if(i < 10){
-        this.firstTimeValue = `0${i}:00`;
-      } else {
-        this.firstTimeValue = `${i}:00`;
-      }
+      return i < 10 ? `0${i}:00` : `${i}:00`;
     },
     setCalWidth() {
       if (
