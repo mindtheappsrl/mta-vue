@@ -259,8 +259,9 @@ export default {
     },
     setCalWidth() {
       if (
-        (this.categories.length > 5 && this.typeValue === "category") ||
-        this.typeValue === "week"
+        ((this.categories.length > 5 && this.typeValue === "category") ||
+          this.typeValue === "week") &&
+        this.$refs.schedulerContainer
       ) {
         this.$refs.schedulerContainer.style.width = "2500px";
       } else {
