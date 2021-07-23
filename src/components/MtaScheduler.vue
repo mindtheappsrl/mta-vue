@@ -1,11 +1,6 @@
 <template>
-  <div style="position:relative">
-    <v-toolbar
-      id="toolbar"
-      dense
-      flat
-      class="grey lighten-4"
-    >
+  <div style="position: relative">
+    <v-toolbar id="toolbar" dense flat class="grey lighten-4">
       <v-btn rounded icon @click="prev()">
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
@@ -51,7 +46,7 @@
         {{ extraBtnData.text }}
       </v-btn>
     </v-toolbar>
-    <div style="width: 100%; overflow:auto">
+    <div style="width: 100%; overflow: auto">
       <div ref="schedulerContainer">
         <v-calendar
           v-on="$listeners"
@@ -80,10 +75,7 @@
             <v-tooltip top>
               <template v-slot:activator="{ on, attrs }">
                 <div v-bind="attrs" v-on="on">
-                  <div
-                    class="pl-1"
-                    style="text-shadow: 1px 1px 2px rgb(0 0 0);"
-                  >
+                  <div class="pl-1" style="text-shadow: 1px 1px 2px rgb(0 0 0)">
                     <strong>{{ event.title }}</strong>
                     <br />
                     <span>
@@ -106,10 +98,7 @@
                 <div>
                   <strong>
                     {{ event.title }}
-                    <span
-                      v-if="event.isChecked"
-                      class="ml-3"
-                    >
+                    <span v-if="event.isChecked" class="ml-3">
                       <v-icon color="white">mdi-check</v-icon>
                     </span>
                   </strong>
@@ -121,7 +110,7 @@
                   <small v-if="event.subtitle" class="font-weight-bold mr-2">
                     {{ event.subtitle }}
                   </small>
-                </div>                
+                </div>
               </span>
             </v-tooltip>
           </template>
@@ -135,7 +124,7 @@ import moment from "moment";
 import EventModel from "../models/event.model";
 export default {
   inheritAttrs: false,
-  props: {    
+  props: {
     value: {
       type: String,
       default: () => moment().format("YYYY-MM-DD"),
@@ -221,31 +210,39 @@ export default {
         this.$refs.calendar.$el.style.maxHeight = "700px";
       }
       if (this.headOnly) {
-          this.$refs.calendar.$el.style.maxHeight = "auto";
-        if(this.typeValue != "month"){
+        this.$refs.calendar.$el.style.maxHeight = "auto";
+        if (this.typeValue != "month") {
           this.$refs.calendar.$el.children[0].style.minHeight = "500px";
           this.$refs.calendar.$el.children[1].style.display = "none";
-          const row = this.$refs.calendar.$el.children[0].querySelector(".v-calendar-category__columns");
+          const row = this.$refs.calendar.$el.children[0].querySelector(
+            ".v-calendar-category__columns"
+          );
           if (row) {
             row.style.height = "100%";
           }
         } else {
           this.$refs.calendar.$el.children[0].style.minHeight = "auto";
-          this.$refs.calendar.$el.children[1].style.display = "flex";          
-          const row = this.$refs.calendar.$el.children[0].querySelector(".v-calendar-category__columns");
+          this.$refs.calendar.$el.children[1].style.display = "flex";
+          const row = this.$refs.calendar.$el.children[0].querySelector(
+            ".v-calendar-category__columns"
+          );
           if (row) {
             row.style.height = "auto";
           }
         }
       }
-      const reset = this.$refs.calendar.$el.querySelectorAll(".v-calendar-weekly__day");
+      const reset = this.$refs.calendar.$el.querySelectorAll(
+        ".v-calendar-weekly__day"
+      );
       reset.forEach((day) => {
-        day.children[0].style.display = 'block';
-      }); 
-      const daysOutOfRange = this.$refs.calendar.$el.querySelectorAll(".v-calendar-weekly__day.v-outside");
+        day.children[0].style.display = "block";
+      });
+      const daysOutOfRange = this.$refs.calendar.$el.querySelectorAll(
+        ".v-calendar-weekly__day.v-outside"
+      );
       daysOutOfRange.forEach((day) => {
-        day.children[0].style.display = 'none';
-      }); 
+        day.children[0].style.display = "none";
+      });
     }
   },
   methods: {
@@ -256,7 +253,9 @@ export default {
       return 24 * (60 / this.intervalMinutesValue);
     },
     countIntervals() {
-      return (this.lastTime - this.firstTime) * (60 / this.intervalMinutesValue);
+      return (
+        (this.lastTime - this.firstTime) * (60 / this.intervalMinutesValue)
+      );
     },
     setCalWidth() {
       if (
@@ -337,7 +336,7 @@ export default {
       handler(newVal) {
         this.currentDate = newVal;
       },
-      immediate: true
+      immediate: true,
     },
     events: {
       handler(newVal) {
@@ -357,48 +356,49 @@ export default {
         }
         this.setCalWidth();
       },
+      immediate: true,
     },
     proposal: {
       handler(newVal) {
         this.porposalData = newVal;
       },
-      immediate: true
+      immediate: true,
     },
     locale: {
       handler(newVal) {
         this.localeValue = newVal;
       },
-      immediate: true
+      immediate: true,
     },
     type: {
       handler(newVal) {
         this.typeValue = newVal;
       },
-      immediate: true
+      immediate: true,
     },
     mode: {
       handler(newVal) {
         this.modeValue = newVal;
       },
-      immediate: true
+      immediate: true,
     },
     firstTime: {
       handler(newVal) {
-        this.intToTime(newVal)
+        this.intToTime(newVal);
       },
-      immediate: true
+      immediate: true,
     },
     intervalMinutes: {
       handler(newVal) {
         this.intervalMinutesValue = newVal > 0 && newVal < 61 ? newVal : 15;
       },
-      immediate: true
+      immediate: true,
     },
     extraBtn: {
       handler(newVal) {
         this.extraBtnData = newVal;
       },
-    }
-  }
+    },
+  },
 };
 </script>
