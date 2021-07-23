@@ -258,15 +258,15 @@ export default {
       );
     },
     setCalWidth() {
-      if (
-        ((this.categories.length > 5 && this.typeValue === "category") ||
-          this.typeValue === "week") &&
-        this.$refs.schedulerContainer
-      ) {
-        this.$refs.schedulerContainer.style.width = "2500px";
-      } else {
-        this.$refs.schedulerContainer.style.width = "";
-      }
+      if (this.$refs.schedulerContainer)
+        if (
+          (this.categories.length > 5 && this.typeValue === "category") ||
+          this.typeValue === "week"
+        ) {
+          this.$refs.schedulerContainer.style.width = "2500px";
+        } else {
+          this.$refs.schedulerContainer.style.width = "";
+        }
     },
     setCalendarViewInterval() {
       if (this.$refs && this.$refs.calendar) {
