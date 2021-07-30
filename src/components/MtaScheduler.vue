@@ -235,18 +235,21 @@ export default {
           }
         }
       }
-      const reset = this.$refs.calendar.$el.querySelectorAll(
-        ".v-calendar-weekly__day"
-      );
-      reset.forEach((day) => {
-        day.children[0].style.display = "block";
-      });
-      const daysOutOfRange = this.$refs.calendar.$el.querySelectorAll(
-        ".v-calendar-weekly__day.v-outside"
-      );
-      daysOutOfRange.forEach((day) => {
-        day.children[0].style.display = "none";
-      });
+
+      if(typeof this.$refs.calendar.$el.querySelectorAll === 'function') {
+        const reset = this.$refs.calendar.$el.querySelectorAll(
+            ".v-calendar-weekly__day"
+        );
+        reset.forEach((day) => {
+          day.children[0].style.display = "block";
+        });
+        const daysOutOfRange = this.$refs.calendar.$el.querySelectorAll(
+            ".v-calendar-weekly__day.v-outside"
+        );
+        daysOutOfRange.forEach((day) => {
+          day.children[0].style.display = "none";
+        });
+      }
     }
   },
   methods: {
