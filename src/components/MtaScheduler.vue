@@ -183,8 +183,6 @@ export default {
   data: () => ({
     moment,
     currentDate: moment().format("YYYY-MM-DD"),
-    categories: [],
-    eventsData: [],
     proposalData: null,
     localeValue: "it",
     typeValue: "category",
@@ -339,6 +337,25 @@ export default {
       }
     },
   },
+  computed: {
+    eventsData() {
+      let data = [];
+      if (this.events && this.events.length) {
+        data = this.events.slice.map((e) => new EventModel(e));
+        data.forEach((e) => {
+          if (!e.timed) {
+            e.start = moment(e.start).format("YYYY-MM-DD");
+            e.end = null;
+          }
+        });
+      }
+      return data;
+    },
+    categories() {
+      const list = this.eventsData.map((e) => e.category);
+      return list.filter((v, i) => list.indexOf(v) === i);
+    }
+  },
   watch: {
     value: {
       handler(newVal) {
@@ -347,21 +364,7 @@ export default {
       immediate: true,
     },
     events: {
-      handler(newVal) {
-        if (newVal && newVal.length) {
-          this.eventsData = newVal.map((e) => new EventModel(e));
-          this.eventsData.forEach((e) => {
-            if (!e.timed) {
-              e.start = moment(e.start).format("YYYY-MM-DD");
-              e.end = null;
-            }
-          });
-          const list = newVal.map((e) => e.category);
-          this.categories = list.filter((v, i) => list.indexOf(v) == i);
-        } else {
-          this.eventsData = [];
-          this.categories = [];
-        }
+      handler() {
         this.setCalWidth();
       },
       immediate: true,
