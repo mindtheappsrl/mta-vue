@@ -341,7 +341,7 @@ export default {
     eventsData() {
       let data = [];
       if (this.events && this.events.length) {
-        data = this.events.slice.map((e) => new EventModel(e));
+        data = this.events.slice().map((e) => new EventModel(e));
         data.forEach((e) => {
           if (!e.timed) {
             e.start = moment(e.start).format("YYYY-MM-DD");
