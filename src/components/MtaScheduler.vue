@@ -204,13 +204,17 @@ export default {
   },
   updated() {
     if (this.$refs && this.$refs.calendar) {
-      if (this.typeValue == "month") {
-        this.$refs.calendar.$el.style.maxHeight = "auto";
-      } else {
-        this.$refs.calendar.$el.style.maxHeight = "700px";
+      if(this.$refs.calendar.$el && this.$refs.calendar.$el.style) {
+        if (this.typeValue == "month") {
+          this.$refs.calendar.$el.style.maxHeight = "auto";
+        } else {
+          this.$refs.calendar.$el.style.maxHeight = "700px";
+        }
       }
       if (this.headOnly) {
-        this.$refs.calendar.$el.style.maxHeight = "auto";
+        if(this.$refs.calendar.$el && this.$refs.calendar.$el.style) {
+          this.$refs.calendar.$el.style.maxHeight = "auto";
+        }
         if (this.typeValue != "month") {
           this.$refs.calendar.$el.children[0].style.minHeight = "500px";
           this.$refs.calendar.$el.children[1].style.display = "none";
