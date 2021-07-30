@@ -7,7 +7,7 @@ export default function(event) {
     this.color = event ? event.color : null;
     this.isChecked = event ? event.isChecked : false;
     this.extra = event ? event.extra : null;
-    this.category = event ? event.category : null;
+    this.category = event ? event.category : '';
     this.categoryId = event ? event.categoryId : null;
     this.timed = event && event.timed !== undefined ? event.timed : true;
     for (var prop in event) {
