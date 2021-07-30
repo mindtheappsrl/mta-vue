@@ -66,6 +66,7 @@
           :event-more="false"
           :categories="categories"
           :weekdays="[1, 2, 3, 4, 5, 6, 0]"
+          @change="getEvents"
           @click:event="showDetails"
           @click:date="goToDate"
           @click:interval="emitDateTime"
@@ -324,17 +325,17 @@ export default {
     getEventColor(event) {
       return event.color;
     },
-    // getEvents({ start, end }) {
-      // if (this.$refs && this.$refs.calendar) {
-      //   this.$emit("rangeChanged", {
-      //     start,
-      //     end,
-      //     date: this.currentDate,
-      //     showFullDay: this.showFullDay,
-      //   });
-      //   this.setCalWidth();
-      // }
-    // },
+    getEvents({ start, end }) {
+      if (this.$refs && this.$refs.calendar) {
+        this.$emit("rangeChanged", {
+          start,
+          end,
+          date: this.currentDate,
+          showFullDay: this.showFullDay,
+        });
+        this.setCalWidth();
+      }
+    },
   },
   computed: {
     eventsData() {
