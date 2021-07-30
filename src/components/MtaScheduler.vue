@@ -352,8 +352,9 @@ export default {
       return data;
     },
     categories() {
-      const list = this.eventsData.map((e) => e.category);
-      return list.filter((v, i) => list.indexOf(v) === i);
+      let list = [];
+      list = this.eventsData.filter((e) => !!e.category).map((e) => e.category);
+      return list;
     }
   },
   watch: {
