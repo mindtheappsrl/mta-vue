@@ -192,6 +192,7 @@ export default {
     intervalMinutesValue: 15,
     extraBtnData: {},
     showFullDay: false,
+    isMounted: false
   }),
   mounted() {
     moment.locale(this.locale);
@@ -199,6 +200,7 @@ export default {
       ? (this.typeValue = "category")
       : (this.typeValue = "day");
     this.setCalendarViewInterval();
+    this.isMounted = true;
   },
   updated() {
     if (this.$refs && this.$refs.calendar) {
@@ -326,7 +328,7 @@ export default {
       return event.color;
     },
     getEvents({ start, end }) {
-      if (this.$refs && this.$refs.calendar) {
+      if (this.isMounted && this.$refs && this.$refs.calendar) {
         this.$emit("rangeChanged", {
           start,
           end,
