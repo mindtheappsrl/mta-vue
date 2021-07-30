@@ -1,6 +1,6 @@
 {
   "name": "mta-vue",
-  "version": "0.3.91",
+  "version": "0.3.92",
   "private": true,
   "main": "dist/mta-vue.common.js",
   "scripts": {
