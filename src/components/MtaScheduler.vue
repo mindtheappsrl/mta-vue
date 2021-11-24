@@ -356,7 +356,7 @@ export default {
     categories() {
       let list = [];
       list = this.eventsData.filter((e) => !!e.category).map((e) => e.category);
-      return list;
+      return [...new Set(list)];
     }
   },
   watch: {
