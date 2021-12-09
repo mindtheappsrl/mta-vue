@@ -329,6 +329,9 @@ export default {
     },
     getEvents({ start, end }) {
       if (this.isMounted && this.$refs && this.$refs.calendar) {
+        if(this.typeValue === 'category' || this.typeValue === 'day') {
+          end = start
+        }
         this.$emit("rangeChanged", {
           start,
           end,
