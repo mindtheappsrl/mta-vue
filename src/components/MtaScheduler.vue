@@ -46,6 +46,9 @@
         {{ extraBtnData.text }}
       </v-btn>
     </v-toolbar>
+    <div v-if="showTopScrollbar" ref="fakeScrollbar" id="fakeScrollbar">
+      <div>&nbsp;</div>
+    </div>
     <div style="width: 100%; overflow: auto">
       <div ref="schedulerContainer">
         <v-calendar
@@ -179,6 +182,10 @@ export default {
         };
       },
     },
+    showTopScrollbar: {
+      type: Boolean,
+      default: () => false,
+    },
   },
   data: () => ({
     moment,
@@ -201,6 +208,14 @@ export default {
       : (this.typeValue = "day");
     this.setCalendarViewInterval();
     this.isMounted = true;
+    if(this.showTopScrollbar && this.$refs.fakeScrollbar) {
+      this.$refs.fakeScrollbar.addEventListener("scroll", () => {
+        this.$refs.calendar.scrollTop = this.$refs.fakeScrollbar.scrollTop;
+      });
+      this.$refs.calendar.addEventListener("scroll", () => {
+        this.$refs.fakeScrollbar.scrollTop = this.$refs.calendar.scrollTop;
+      });
+    }
   },
   updated() {
     if (this.$refs && this.$refs.calendar) {
@@ -270,8 +285,14 @@ export default {
           (this.categories.length > 5 && this.typeValue === "category") ||
           this.typeValue === "week"
         ) {
+          if(this.showTopScrollbar && this.$refs.fakeScrollbar) {
+            this.$refs.fakeScrollbar.style.width = "2500px";
+          }
           this.$refs.schedulerContainer.style.width = "2500px";
         } else {
+          if(this.showTopScrollbar && this.$refs.fakeScrollbar) {
+          this.$refs.fakeScrollbar.style.width = "";
+        }
           this.$refs.schedulerContainer.style.width = "";
         }
     },
@@ -419,3 +440,16 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+#fakeScrollbar {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#fakeScrollbar div {
+  font-size: 1px;
+  line-height: 1px;
+}
+</style>
