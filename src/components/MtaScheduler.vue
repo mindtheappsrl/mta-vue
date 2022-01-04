@@ -47,9 +47,10 @@
       </v-btn>
     </v-toolbar>
     <div style="width: 100%; overflow: auto">
-      <div v-if="showTopScrollbar && typeValue !== 'category' && typeValue !== 'day'" ref="fakeScrollbar" id="fakeScrollbar">
-        <div>&nbsp;</div>
-      </div>
+      <MtaHorizontalScrollbar
+          v-if="showTopScrollbar && typeValue !== 'category' && typeValue !== 'day'"
+          :container-ref="horizontalScheduleScrollbar.container"
+      ></MtaHorizontalScrollbar>
       <div ref="schedulerContainer">
         <v-calendar
           v-on="$listeners"
@@ -199,7 +200,11 @@ export default {
     intervalMinutesValue: 15,
     extraBtnData: {},
     showFullDay: false,
-    isMounted: false
+    isMounted: false,
+
+    horizontalScheduleScrollbar: {
+      container: null
+    }
   }),
   mounted() {
     moment.locale(this.locale);
@@ -208,14 +213,7 @@ export default {
       : (this.typeValue = "day");
     this.setCalendarViewInterval();
     this.isMounted = true;
-    if(this.showTopScrollbar && this.$refs.fakeScrollbar && this.$refs.calendar) {
-      this.$refs.fakeScrollbar.addEventListener("scroll", () => {
-        this.$refs.calendar.$el.scrollLeft = this.$refs.fakeScrollbar.scrollLeft;
-      });
-      this.$refs.calendar.$el.addEventListener("scroll", () => {
-        this.$refs.fakeScrollbar.scrollLeft = this.$refs.calendar.$el.scrollLeft;
-      });
-    }
+    this.horizontalScheduleScrollbar.container = this.$refs.schedulerContainer;
   },
   updated() {
     if (this.$refs && this.$refs.calendar) {
@@ -285,14 +283,8 @@ export default {
           (this.categories.length > 5 && this.typeValue === "category") ||
           this.typeValue === "week"
         ) {
-          if(this.showTopScrollbar && this.$refs.fakeScrollbar) {
-            this.$refs.fakeScrollbar.style.width = "2500px";
-          }
           this.$refs.schedulerContainer.style.width = "2500px";
         } else {
-          if(this.showTopScrollbar && this.$refs.fakeScrollbar) {
-          this.$refs.fakeScrollbar.style.width = "";
-        }
           this.$refs.schedulerContainer.style.width = "";
         }
     },
@@ -440,16 +432,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-#fakeScrollbar {
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-#fakeScrollbar div {
-  font-size: 1px;
-  line-height: 1px;
-}
-</style>
