@@ -5,9 +5,11 @@ import 'vuetify/dist/vuetify.min.css'
 Vue.use(Vuetify)
 
 import MtaScheduler from './components/MtaScheduler.vue'
+import MtaHorizontalScrollbar from "./components/MtaHorizontalScrollbar";
 
 const Components = {
-  MtaScheduler
+  MtaScheduler,
+  MtaHorizontalScrollbar
 }
  
 Object.keys(Components).forEach(name => {
