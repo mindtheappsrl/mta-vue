@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-import App from "./App.vue";
  
 Vue.use(Vuetify)
 
@@ -19,6 +18,11 @@ Object.keys(Components).forEach(name => {
  
 export default Components
 
-new Vue({
-  render: h => h(App)
-}).$mount("#app");
+// Create render function and mount only in development mode
+if (process.env.NODE_ENV === 'development') {
+  const app = import("./App.vue");
+
+  new Vue({
+    render: h => h(app)
+  }).$mount("#app");
+}
