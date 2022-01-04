@@ -46,10 +46,10 @@
         {{ extraBtnData.text }}
       </v-btn>
     </v-toolbar>
-    <div v-if="showTopScrollbar" ref="fakeScrollbar" id="fakeScrollbar">
-      <div>&nbsp;</div>
-    </div>
     <div style="width: 100%; overflow: auto">
+      <div v-if="showTopScrollbar && typeValue !== 'category' && typeValue !== 'day'" ref="fakeScrollbar" id="fakeScrollbar">
+        <div>&nbsp;</div>
+      </div>
       <div ref="schedulerContainer">
         <v-calendar
           v-on="$listeners"
