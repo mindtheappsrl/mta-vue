@@ -1,12 +1,13 @@
 {
   "name": "mta-vue",
-  "version": "0.3.103",
+  "version": "0.4.0",
   "private": true,
   "main": "dist/mta-vue.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name mta-vue ./src/main.js",
     "build-bundle": "vue-cli-service build --target lib --name mta-vue ./src/main.js && git add . && npm version patch -f",
+    "build-bundle:minor": "vue-cli-service build --target lib --name mta-vue ./src/main.js && git add . && npm version minor -f",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
