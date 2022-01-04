@@ -208,12 +208,12 @@ export default {
       : (this.typeValue = "day");
     this.setCalendarViewInterval();
     this.isMounted = true;
-    if(this.showTopScrollbar && this.$refs.fakeScrollbar) {
-      this.$refs.fakeScrollbar.$el.addEventListener("scroll", () => {
-        this.$refs.calendar.$el.scrollLeft = this.$refs.fakeScrollbar.$el.scrollLeft;
+    if(this.showTopScrollbar && this.$refs.fakeScrollbar && this.$refs.calendar) {
+      this.$refs.fakeScrollbar.addEventListener("scroll", () => {
+        this.$refs.calendar.$el.scrollLeft = this.$refs.fakeScrollbar.scrollLeft;
       });
       this.$refs.calendar.$el.addEventListener("scroll", () => {
-        this.$refs.fakeScrollbar.$el.scrollLeft = this.$refs.calendar.$el.scrollLeft;
+        this.$refs.fakeScrollbar.scrollLeft = this.$refs.calendar.$el.scrollLeft;
       });
     }
   },
