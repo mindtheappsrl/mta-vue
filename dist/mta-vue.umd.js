@@ -71379,7 +71379,7 @@ var vuetify_default = /*#__PURE__*/__webpack_require__.n(vuetify);
 // EXTERNAL MODULE: ./node_modules/vuetify/dist/vuetify.min.css
 var vuetify_min = __webpack_require__("bf40");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d2d71aa2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/App.vue?vue&type=template&id=5b7a5810&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"bf835b64-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/App.vue?vue&type=template&id=5b7a5810&
 var Appvue_type_template_id_5b7a5810_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app"},[_c('div',{staticStyle:{"width":"300px"},attrs:{"id":"horizontal-scrollbar-test"}},[_c('MtaHorizontalScrollbar',{attrs:{"container-ref":_vm.horizontalScrollbarTest.container}}),_c('div',{ref:"container1",staticStyle:{"overflow-x":"auto"}},[_c('div',{staticStyle:{"width":"600px","height":"100px","background-color":"#ff0000"}},[_vm._v(" test test test ")])])],1)])}
 var staticRenderFns = []
 
@@ -71599,17 +71599,17 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var App = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d2d71aa2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=6fe905ce&
-var MtaSchedulervue_type_template_id_6fe905ce_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"position":"relative"}},[_c('v-toolbar',{staticClass:"grey lighten-4",attrs:{"id":"toolbar","dense":"","flat":""}},[_c('v-btn',{attrs:{"rounded":"","icon":""},on:{"click":function($event){return _vm.prev()}}},[_c('v-icon',[_vm._v("mdi-chevron-left")])],1),_c('h3',{staticClass:"text--secondary text-center",staticStyle:{"min-width":"210px"}},[_vm._v(" "+_vm._s(_vm.moment(_vm.currentDate).format("dddd DD MMMM YYYY"))+" ")]),_c('v-btn',{attrs:{"rounded":"","icon":""},on:{"click":function($event){return _vm.next()}}},[_c('v-icon',[_vm._v("mdi-chevron-right")])],1),_c('v-btn-toggle',{staticClass:"ml-5",attrs:{"mandatory":"","rounded":"","dense":"","color":"secondary darken-2"},model:{value:(_vm.typeValue),callback:function ($$v) {_vm.typeValue=$$v},expression:"typeValue"}},[_c('v-btn',{attrs:{"value":_vm.hasCategoryView ? 'category' : 'day'}},[_vm._v(" Giorno ")]),_c('v-btn',{attrs:{"value":"week"}},[_vm._v(" Settimana ")]),_c('v-btn',{attrs:{"value":"month"}},[_vm._v(" Mese ")])],1),(_vm.typeValue != 'month')?_c('v-switch',{staticClass:"ml-5 mt-5",attrs:{"inset":"","color":"primary","label":"Mostra intera giornata"},on:{"change":_vm.setCalendarViewInterval},model:{value:(_vm.showFullDay),callback:function ($$v) {_vm.showFullDay=$$v},expression:"showFullDay"}}):_vm._e(),(_vm.typeValue == 'category' && !_vm.proposalData && _vm.extraBtnData.visible)?_c('v-btn',{staticClass:"ml-5",attrs:{"elevation":"0","rounded":"","color":"orange","dark":""},on:{"click":_vm.extraBtnData.fn}},[_vm._v(" "+_vm._s(_vm.extraBtnData.text)+" ")]):_vm._e()],1),(_vm.showTopScrollbar && _vm.typeValue !== 'category' && _vm.typeValue !== 'day')?_c('MtaHorizontalScrollbar',{attrs:{"container-ref":_vm.horizontalScheduleScrollbar.container}}):_vm._e(),_c('div',{ref:"scheduleScrollbarRef",staticStyle:{"width":"100%","overflow":"auto"}},[_c('div',{ref:"schedulerContainer"},[_c('v-calendar',_vm._g({ref:"calendar",attrs:{"locale":_vm.localeValue,"type":_vm.typeValue,"events":_vm.eventsData,"event-overlap-mode":_vm.modeValue,"event-overlap-threshold":30,"event-color":_vm.getEventColor,"first-time":_vm.firstTimeValue,"interval-count":_vm.intervalCountValue,"interval-minutes":_vm.intervalMinutesValue,"interval-format":function (locale, getOptions) { return locale.time; },"mobile-breakpoint":0,"event-more":false,"categories":_vm.categories,"weekdays":[1, 2, 3, 4, 5, 6, 0]},on:{"change":_vm.getEvents,"click:event":_vm.showDetails,"click:date":_vm.goToDate,"click:interval":_vm.emitDateTime},scopedSlots:_vm._u([{key:"event",fn:function(ref){
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"bf835b64-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaScheduler.vue?vue&type=template&id=3639f9d3&
+var MtaSchedulervue_type_template_id_3639f9d3_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"position":"relative"}},[_c('v-toolbar',{staticClass:"grey lighten-4",attrs:{"id":"toolbar","dense":"","flat":""}},[_c('v-btn',{attrs:{"rounded":"","icon":""},on:{"click":function($event){return _vm.prev()}}},[_c('v-icon',[_vm._v("mdi-chevron-left")])],1),_c('h3',{staticClass:"text--secondary text-center",staticStyle:{"min-width":"210px"}},[_vm._v(" "+_vm._s(_vm.moment(_vm.currentDate).format("dddd DD MMMM YYYY"))+" ")]),_c('v-btn',{attrs:{"rounded":"","icon":""},on:{"click":function($event){return _vm.next()}}},[_c('v-icon',[_vm._v("mdi-chevron-right")])],1),_c('v-btn-toggle',{staticClass:"ml-5",attrs:{"mandatory":"","rounded":"","dense":"","color":"secondary darken-2"},model:{value:(_vm.typeValue),callback:function ($$v) {_vm.typeValue=$$v},expression:"typeValue"}},[_c('v-btn',{attrs:{"value":_vm.hasCategoryView ? 'category' : 'day'}},[_vm._v(" Giorno ")]),_c('v-btn',{attrs:{"value":"week"}},[_vm._v(" Settimana ")]),_c('v-btn',{attrs:{"value":"month"}},[_vm._v(" Mese ")])],1),(_vm.typeValue != 'month')?_c('v-switch',{staticClass:"ml-5 mt-5",attrs:{"inset":"","color":"primary","label":"Mostra intera giornata"},on:{"change":_vm.setCalendarViewInterval},model:{value:(_vm.showFullDay),callback:function ($$v) {_vm.showFullDay=$$v},expression:"showFullDay"}}):_vm._e(),(_vm.typeValue == 'category' && !_vm.proposalData && _vm.extraBtnData.visible)?_c('v-btn',{staticClass:"ml-5",attrs:{"elevation":"0","rounded":"","color":"orange","dark":""},on:{"click":_vm.extraBtnData.fn}},[_vm._v(" "+_vm._s(_vm.extraBtnData.text)+" ")]):_vm._e()],1),(_vm.showTopScrollbar && _vm.typeValue !== 'category' && _vm.typeValue !== 'day')?_c('MtaHorizontalScrollbar',{ref:"horizontalScrollbar",attrs:{"container-ref":_vm.horizontalScheduleScrollbar.container}}):_vm._e(),_c('div',{ref:"scheduleScrollbarRef",staticStyle:{"width":"100%","overflow":"auto"}},[_c('div',{ref:"schedulerContainer"},[_c('v-calendar',_vm._g({ref:"calendar",attrs:{"locale":_vm.localeValue,"type":_vm.typeValue,"events":_vm.eventsData,"event-overlap-mode":_vm.modeValue,"event-overlap-threshold":30,"event-color":_vm.getEventColor,"first-time":_vm.firstTimeValue,"interval-count":_vm.intervalCountValue,"interval-minutes":_vm.intervalMinutesValue,"interval-format":function (locale, getOptions) { return locale.time; },"mobile-breakpoint":0,"event-more":false,"categories":_vm.categories,"weekdays":[1, 2, 3, 4, 5, 6, 0]},on:{"change":_vm.getEvents,"click:event":_vm.showDetails,"click:date":_vm.goToDate,"click:interval":_vm.emitDateTime},scopedSlots:_vm._u([{key:"event",fn:function(ref){
 var event = ref.event;
 return [_c('v-tooltip',{attrs:{"top":""},scopedSlots:_vm._u([{key:"activator",fn:function(ref){
 var on = ref.on;
 var attrs = ref.attrs;
 return [_c('div',_vm._g(_vm._b({},'div',attrs,false),on),[_c('div',{staticClass:"pl-1",staticStyle:{"text-shadow":"1px 1px 2px rgb(0 0 0)"}},[_c('strong',[_vm._v(_vm._s(event.title))]),_c('br'),_c('span',[_vm._v(" "+_vm._s(_vm.getTimeRange(event))+" ")]),_c('br'),(event.subtitle)?_c('small',{staticClass:"font-weight-bold mr-2"},[_vm._v(" "+_vm._s(event.subtitle)+" ")]):_vm._e()]),(event.isChecked)?_c('div',{staticStyle:{"position":"absolute","top":"-1px","right":"3px"}},[_c('v-icon',{attrs:{"color":"white"}},[_vm._v("mdi-check")])],1):_vm._e()])]}}],null,true)},[_c('span',[_c('div',[_c('strong',[_vm._v(" "+_vm._s(event.title)+" "),(event.isChecked)?_c('span',{staticClass:"ml-3"},[_c('v-icon',{attrs:{"color":"white"}},[_vm._v("mdi-check")])],1):_vm._e()]),_c('br'),_c('span',[_vm._v(" "+_vm._s(_vm.getTimeRange(event))+" ")]),_c('br'),(event.subtitle)?_c('small',{staticClass:"font-weight-bold mr-2"},[_vm._v(" "+_vm._s(event.subtitle)+" ")]):_vm._e()])])])]}}]),model:{value:(_vm.currentDate),callback:function ($$v) {_vm.currentDate=$$v},expression:"currentDate"}},_vm.$listeners))],1)])],1)}
-var MtaSchedulervue_type_template_id_6fe905ce_staticRenderFns = []
+var MtaSchedulervue_type_template_id_3639f9d3_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=6fe905ce&
+// CONCATENATED MODULE: ./src/components/MtaScheduler.vue?vue&type=template&id=3639f9d3&
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
 function _arrayLikeToArray(arr, len) {
@@ -71738,6 +71738,7 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
 
 
 
+//
 //
 //
 //
@@ -72044,6 +72045,10 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
         } else {
           this.$refs.schedulerContainer.style.width = "";
         }
+
+        if (this.$refs.horizontalScrollbar) {
+          this.$refs.horizontalScrollbar.initScrollbar();
+        }
       }
     },
     setCalendarViewInterval: function setCalendarViewInterval() {
@@ -72210,8 +72215,8 @@ var moment_default = /*#__PURE__*/__webpack_require__.n(moment);
 
 var MtaScheduler_component = normalizeComponent(
   components_MtaSchedulervue_type_script_lang_js_,
-  MtaSchedulervue_type_template_id_6fe905ce_render,
-  MtaSchedulervue_type_template_id_6fe905ce_staticRenderFns,
+  MtaSchedulervue_type_template_id_3639f9d3_render,
+  MtaSchedulervue_type_template_id_3639f9d3_staticRenderFns,
   false,
   null,
   null,
@@ -72220,12 +72225,12 @@ var MtaScheduler_component = normalizeComponent(
 )
 
 /* harmony default export */ var MtaScheduler = (MtaScheduler_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d2d71aa2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaHorizontalScrollbar.vue?vue&type=template&id=56a02df9&
-var MtaHorizontalScrollbarvue_type_template_id_56a02df9_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"fakeScrollbar",attrs:{"id":"fakeScrollbar"}},[_c('div',{ref:"fakeScrollbarContent"},[_vm._v(" ")])])}
-var MtaHorizontalScrollbarvue_type_template_id_56a02df9_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"bf835b64-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaHorizontalScrollbar.vue?vue&type=template&id=63be5bc4&
+var MtaHorizontalScrollbarvue_type_template_id_63be5bc4_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"fakeScrollbar",attrs:{"id":"fakeScrollbar"}},[_c('div',{ref:"fakeScrollbarContent"},[_vm._v(" ")])])}
+var MtaHorizontalScrollbarvue_type_template_id_63be5bc4_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/MtaHorizontalScrollbar.vue?vue&type=template&id=56a02df9&
+// CONCATENATED MODULE: ./src/components/MtaHorizontalScrollbar.vue?vue&type=template&id=63be5bc4&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/MtaHorizontalScrollbar.vue?vue&type=script&lang=js&
 //
@@ -72263,12 +72268,10 @@ var MtaHorizontalScrollbarvue_type_template_id_56a02df9_staticRenderFns = []
 
         this.$nextTick(function () {
           _this.$refs.fakeScrollbar.onscroll = function () {
-            console.log("scroll left", _this.$refs.fakeScrollbar.scrollLeft);
             _this.containerRef.scrollLeft = _this.$refs.fakeScrollbar.scrollLeft;
           };
 
           _this.containerRef.onscroll = function () {
-            console.log("scroll left");
             _this.$refs.fakeScrollbar.scrollLeft = _this.containerRef.scrollLeft;
           };
         });
@@ -72292,8 +72295,8 @@ var MtaHorizontalScrollbarvue_type_style_index_0_lang_css_ = __webpack_require__
 
 var MtaHorizontalScrollbar_component = normalizeComponent(
   components_MtaHorizontalScrollbarvue_type_script_lang_js_,
-  MtaHorizontalScrollbarvue_type_template_id_56a02df9_render,
-  MtaHorizontalScrollbarvue_type_template_id_56a02df9_staticRenderFns,
+  MtaHorizontalScrollbarvue_type_template_id_63be5bc4_render,
+  MtaHorizontalScrollbarvue_type_template_id_63be5bc4_staticRenderFns,
   false,
   null,
   null,

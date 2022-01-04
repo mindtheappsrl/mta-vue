@@ -48,6 +48,7 @@
     </v-toolbar>
     <MtaHorizontalScrollbar
         v-if="showTopScrollbar && typeValue !== 'category' && typeValue !== 'day'"
+        ref="horizontalScrollbar"
         :container-ref="horizontalScheduleScrollbar.container"
     ></MtaHorizontalScrollbar>
     <div ref="scheduleScrollbarRef" style="width: 100%; overflow: auto">
@@ -288,6 +289,10 @@ export default {
           this.$refs.schedulerContainer.style.width = "2500px";
         } else {
           this.$refs.schedulerContainer.style.width = "";
+        }
+
+        if (this.$refs.horizontalScrollbar) {
+          this.$refs.horizontalScrollbar.initScrollbar()
         }
       }
     },

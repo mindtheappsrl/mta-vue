@@ -33,11 +33,9 @@ export default {
         // Set event listener for scroll left event
         this.$nextTick(() => {
           this.$refs.fakeScrollbar.onscroll = () => {
-            console.log("scroll left", this.$refs.fakeScrollbar.scrollLeft)
             this.containerRef.scrollLeft = this.$refs.fakeScrollbar.scrollLeft
           }
           this.containerRef.onscroll = () => {
-            console.log("scroll left")
             this.$refs.fakeScrollbar.scrollLeft = this.containerRef.scrollLeft
           }
         })
