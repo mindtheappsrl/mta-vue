@@ -23,24 +23,24 @@ export default {
     }
   },
   mounted() {
-    if(this.$refs.fakeScrollbar && this.$refs.fakeScrollbarContent && this.containerRef) {
       this.initScrollbar()
-    }
   },
   methods: {
     initScrollbar() {
-      // Set width of fake scrollbar content to the width of the container
-      this.$refs.fakeScrollbarContent.style.width = this.containerRef.children[0].offsetWidth + "px"
+      if(this.$refs.fakeScrollbar && this.$refs.fakeScrollbarContent && this.containerRef) {
+        // Set width of fake scrollbar content to the width of the container
+        this.$refs.fakeScrollbarContent.style.width = this.containerRef.children[0].offsetWidth + "px"
 
-      // Set event listener for scroll left event
-      this.$nextTick(() => {
-        this.$refs.fakeScrollbar.onscroll = () => {
-          this.containerRef.scrollLeft = this.$refs.fakeScrollbar.scrollLeft
-        }
-        this.containerRef.onscroll = () => {
-          this.$refs.fakeScrollbar.scrollLeft = this.containerRef.scrollLeft
-        }
-      })
+        // Set event listener for scroll left event
+        this.$nextTick(() => {
+          this.$refs.fakeScrollbar.onscroll = () => {
+            this.containerRef.scrollLeft = this.$refs.fakeScrollbar.scrollLeft
+          }
+          this.containerRef.onscroll = () => {
+            this.$refs.fakeScrollbar.scrollLeft = this.containerRef.scrollLeft
+          }
+        })
+      }
     },
     updateScrollbar() {
       this.initScrollbar()
