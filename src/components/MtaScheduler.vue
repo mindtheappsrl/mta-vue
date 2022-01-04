@@ -292,7 +292,7 @@ export default {
         }
 
         if (this.$refs.horizontalScrollbar) {
-          this.$refs.horizontalScrollbar.initScrollbar()
+          this.$refs.horizontalScrollbar.updateScrollbar();
         }
       }
     },

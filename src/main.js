@@ -20,9 +20,9 @@ export default Components
 
 // Create render function and mount only in development mode
 if (process.env.NODE_ENV === 'development') {
-  const app = import("./App.vue");
-
-  new Vue({
-    render: h => h(app)
-  }).$mount("#app");
+  import("./App.vue").then((app) => {
+    new Vue({
+      render: h => h(app.default)
+    }).$mount("#app");
+  });
 }
