@@ -47,7 +47,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style>
 #fakeScrollbar {
   width: 100%;
   overflow-x: auto;
