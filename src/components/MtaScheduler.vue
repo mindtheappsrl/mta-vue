@@ -46,11 +46,11 @@
         {{ extraBtnData.text }}
       </v-btn>
     </v-toolbar>
-    <div style="width: 100%; overflow: auto">
-      <MtaHorizontalScrollbar
-          v-if="showTopScrollbar && typeValue !== 'category' && typeValue !== 'day'"
-          :container-ref="horizontalScheduleScrollbar.container"
-      ></MtaHorizontalScrollbar>
+    <MtaHorizontalScrollbar
+        v-if="showTopScrollbar && typeValue !== 'category' && typeValue !== 'day'"
+        :container-ref="horizontalScheduleScrollbar.container"
+    ></MtaHorizontalScrollbar>
+    <div ref="scheduleScrollbarRef" style="width: 100%; overflow: auto">
       <div ref="schedulerContainer">
         <v-calendar
           v-on="$listeners"
@@ -213,7 +213,9 @@ export default {
       : (this.typeValue = "day");
     this.setCalendarViewInterval();
     this.isMounted = true;
-    this.horizontalScheduleScrollbar.container = this.$refs.schedulerContainer;
+    if (this.$refs.scheduleScrollbarRef) {
+      this.horizontalScheduleScrollbar.container = this.$refs.scheduleScrollbarRef;
+    }
   },
   updated() {
     if (this.$refs && this.$refs.calendar) {
@@ -278,15 +280,16 @@ export default {
       );
     },
     setCalWidth() {
-      if (this.$refs.schedulerContainer)
+      if (this.$refs.schedulerContainer) {
         if (
-          (this.categories.length > 5 && this.typeValue === "category") ||
-          this.typeValue === "week"
+            (this.categories.length > 5 && this.typeValue === "category") ||
+            this.typeValue === "week"
         ) {
           this.$refs.schedulerContainer.style.width = "2500px";
         } else {
           this.$refs.schedulerContainer.style.width = "";
         }
+      }
     },
     setCalendarViewInterval() {
       if (this.$refs && this.$refs.calendar) {
