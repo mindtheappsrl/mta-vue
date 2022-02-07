@@ -56,6 +56,7 @@
         <v-calendar
           v-on="$listeners"
           ref="calendar"
+          id="calendar"
           v-model="currentDate"
           :locale="localeValue"
           :type="typeValue"
@@ -440,3 +441,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+#calendar {
+  &.v-calendar-daily {
+    overflow-y: auto !important;
+  }
+}
+</style>
