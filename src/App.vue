@@ -8,6 +8,9 @@
         </div>
       </div>
     </div>
+    <div id="scheduler-test">
+      <MtaScheduler style="height: 300px"></MtaScheduler>
+    </div>
   </div>
 </template>
 
