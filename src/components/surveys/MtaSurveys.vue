@@ -29,6 +29,7 @@
             rounded
             small
             color="primary"
+            class="ml-2"
             @click="toggleEdit()"
         >
           <v-icon left small>mdi-pencil</v-icon>
@@ -195,10 +196,10 @@
               :items="surveyRowTypeCodes"
           >
             <template v-slot:selection="data">
-              {{ labels.surveyRowTypes[data.item.text] }}
+              {{ labels.surveyRowTypes[data.item.value] }}
             </template>
             <template v-slot:item="data">
-              {{ labels.surveyRowTypes[data.item.text] }}
+              {{ labels.surveyRowTypes[data.item.value] }}
             </template>
           </mta-autocomplete>
           <v-switch
@@ -494,5 +495,7 @@ export default {
 </script>
 
 <style scoped>
-
+#survey-row-tabs .v-slide-group.v-tabs-bar {
+  display: none;
+}
 </style>
