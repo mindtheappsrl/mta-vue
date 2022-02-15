@@ -494,7 +494,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #survey-row-tabs {
   .v-slide-group.v-tabs-bar {
     display: none;
