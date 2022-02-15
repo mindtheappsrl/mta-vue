@@ -494,8 +494,15 @@ export default {
 }
 </script>
 
-<style scoped>
-#survey-row-tabs .v-slide-group.v-tabs-bar {
-  display: none;
+<style lang="scss" scoped>
+#survey-row-tabs {
+  .v-slide-group.v-tabs-bar {
+    display: none;
+  }
 }
+
+.cursor-grab {
+  cursor: grab;
+}
+
 </style>
