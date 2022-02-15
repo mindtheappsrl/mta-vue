@@ -10,7 +10,7 @@
             @click="openSurveyRowDialog()"
         >
           <v-icon left small>mdi-plus</v-icon>
-          {{ labels.newSurveyRow }}
+          {{ availableLabels.newSurveyRow }}
         </v-btn>
       </v-col>
       <v-col class="text-right">
@@ -22,7 +22,7 @@
             @click="toggleSort()"
         >
           <v-icon left small>mdi-menu-swap</v-icon>
-          {{ labels.sort }}
+          {{ availableLabels.sort }}
         </v-btn>
         <v-btn
             v-if="!isSorting && !isEditing && surveyDetails.surveys.length"
@@ -33,15 +33,15 @@
             @click="toggleEdit()"
         >
           <v-icon left small>mdi-pencil</v-icon>
-          {{ labels.edit }}
+          {{ availableLabels.edit }}
         </v-btn>
         <v-btn v-if="isEditing" rounded text small @click="undo()">
           <v-icon small left>mdi-undo</v-icon>
-          {{ labels.stopEdit }}
+          {{ availableLabels.stopEdit }}
         </v-btn>
         <v-btn v-if="isSorting" rounded small text @click="undo()">
           <v-icon small left>mdi-undo</v-icon>
-          {{ labels.undo }}
+          {{ availableLabels.undo }}
         </v-btn>
         <v-btn
             v-if="surveyDetails.surveys.length || ignoreRows.length"
@@ -51,7 +51,7 @@
             @click="$emit('click:save-survey', surveyDetails)"
         >
           <v-icon small left>mdi-content-save</v-icon>
-          {{ labels.save }}
+          {{ availableLabels.save }}
         </v-btn>
       </v-col>
       <v-col cols="12">
@@ -92,7 +92,7 @@
                           mdi-asterisk
                         </v-icon>
                         {{
-                          labels.surveyRowTypes[sr.rowTypeCode]
+                          availableLabels.surveyRowTypes[sr.rowTypeCode]
                         }}
                       </v-chip>
                       <span v-if="sr.surveyRowTextCode">
@@ -160,7 +160,7 @@
               <v-icon color="grey" class="mb-2">
                 mdi-alert-circle
               </v-icon>
-              <div>{{ labels.noData }}</div>
+              <div>{{ availableLabels.noData }}</div>
             </v-col>
           </v-row>
         </div>
@@ -169,7 +169,7 @@
 
     <mta-dialog-with-header
         v-model="surveyRowDialog.model"
-        :title="surveyRowDialog.row.id ? labels.surveyRow.edit : labels.surveyRow.add"
+        :title="surveyRowDialog.row.id ? availableLabels.surveyRow.edit : availableLabels.surveyRow.add"
     >
       <v-tabs id="survey-row-tabs" v-model="surveyRowDialog.tab">
         <v-tab-item value="tab-question">
@@ -178,7 +178,7 @@
               rounded
               filled
               dense
-              :label="labels.surveyRow.text"
+              :label="availableLabels.surveyRow.text"
           >
           </v-text-field>
           <v-text-field
@@ -186,20 +186,20 @@
               rounded
               filled
               dense
-              :label="labels.surveyRow.code"
+              :label="availableLabels.surveyRow.code"
           >
           </v-text-field>
           <mta-autocomplete
               v-model="surveyRowDialog.row.rowTypeCode"
               :disabled="surveyRowDialog.row.id !== null"
-              :label="labels.surveyRow.type"
+              :label="availableLabels.surveyRow.type"
               :items="surveyRowTypeCodes"
           >
             <template v-slot:selection="data">
-              {{ labels.surveyRowTypes[data.item.value] }}
+              {{ availableLabels.surveyRowTypes[data.item.value] }}
             </template>
             <template v-slot:item="data">
-              {{ labels.surveyRowTypes[data.item.value] }}
+              {{ availableLabels.surveyRowTypes[data.item.value] }}
             </template>
           </mta-autocomplete>
           <v-switch
@@ -207,7 +207,7 @@
               v-model="surveyRowDialog.row.isRequired"
               class="ml-2"
               inset
-              :label="labels.isRequired"
+              :label="availableLabels.isRequired"
               color="error"
           >
           </v-switch>
@@ -228,7 +228,7 @@
               >
                 mdi-asterisk
               </v-icon>
-              {{ labels.surveyRowTypes[surveyRowDialog.row.rowTypeCode] }}
+              {{ availableLabels.surveyRowTypes[surveyRowDialog.row.rowTypeCode] }}
             </v-chip>
           </div>
           <div class="text-center">
@@ -245,7 +245,7 @@
                 @click="addOption(surveyRowDialog.row.answersList.length)"
             >
               <v-icon left small>mdi-plus</v-icon>
-              {{ labels.surveyRow.addOption }}
+              {{ availableLabels.surveyRow.addOption }}
             </v-btn>
           </div>
 
@@ -260,7 +260,7 @@
                 dense
                 filled
                 hide-details
-                :label="`${labels.surveyRow.answers.text} ${idx + 1}`"
+                :label="`${availableLabels.surveyRow.answers.text} ${idx + 1}`"
                 :append-icon="idx > 0 ? 'mdi-close-circle' : ''"
                 @click:append="removeOption(idx)"
             ></v-text-field>
@@ -284,7 +284,7 @@
               @click="addEditSurveyAnswers()"
           >
             <v-icon left small>mdi-arrow-right</v-icon>
-            {{ labels.continue }}
+            {{ availableLabels.continue }}
           </v-btn>
           <v-btn
               v-else
@@ -294,10 +294,10 @@
               @click="addEditSurveyRow()"
           >
               <span v-if="surveyRowDialog.row.id">
-                <v-icon left small>mdi-pencil</v-icon>{{ labels.edit }}
+                <v-icon left small>mdi-pencil</v-icon>{{ availableLabels.edit }}
               </span>
             <span v-else>
-                <v-icon left small>mdi-plus</v-icon>{{ labels.add }}
+                <v-icon left small>mdi-plus</v-icon>{{ availableLabels.add }}
               </span>
           </v-btn>
         </template>
@@ -306,7 +306,7 @@
 
     <mta-delete-dialog
         v-model="confirmDeleteSurveyRowDialog.model"
-        :message="labels.surveyRow.deleteMsg"
+        :message="availableLabels.surveyRow.deleteMsg"
         @click:delete="deleteSurveyRow()"
     >
     </mta-delete-dialog>
@@ -335,34 +335,7 @@ export default {
   props: {
     labels: {
       type: Object,
-      default: () => ({
-        newSurveyRow: 'Aggiungi domanda',
-        sort: 'Ordina',
-        edit: 'Modifica',
-        add: 'Aggiungi',
-        stopEdit: 'Annulla',
-        undo: 'Annulla',
-        save: 'Salva',
-        noData: 'Nessuna domanda inserita',
-        isRequired: 'Obbligatorio',
-        continue: 'Continua',
-        surveyRow: {
-          add: 'Aggiungi domanda',
-          edit: 'Modifica domanda',
-          text: 'Domanda',
-          code: 'Codice',
-          type: 'Tipo',
-          addOption: 'Aggiungi opzione',
-          deleteMsg: 'Vuoi eliminare questa domanda?',
-          answers: {
-            text: 'Opzione',
-          }
-        },
-        surveyRowTypes: surveyRowTypeCodes.reduce((acc, cur) => {
-          acc[cur.value] = cur.text
-          return acc
-        }, {}),
-      }),
+      default: () => {},
     },
     surveyDetails: {
       type: Object,
@@ -401,6 +374,37 @@ export default {
           })
           .filter((row) => !this.ignoreRows.includes(row.id))
     },
+    availableLabels() {
+      return {
+        newSurveyRow: 'Aggiungi domanda',
+        sort: 'Ordina',
+        edit: 'Modifica',
+        add: 'Aggiungi',
+        stopEdit: 'Annulla',
+        undo: 'Annulla',
+        save: 'Salva',
+        noData: 'Nessuna domanda inserita',
+        isRequired: 'Obbligatorio',
+        continue: 'Continua',
+        surveyRow: {
+          add: 'Aggiungi domanda',
+          edit: 'Modifica domanda',
+          text: 'Domanda',
+          code: 'Codice',
+          type: 'Tipo',
+          addOption: 'Aggiungi opzione',
+          deleteMsg: 'Vuoi eliminare questa domanda?',
+          answers: {
+            text: 'Opzione',
+          }
+        },
+        surveyRowTypes: surveyRowTypeCodes.reduce((acc, cur) => {
+          acc[cur.value] = cur.text
+          return acc
+        }, {}),
+        ...this.labels
+      }
+    }
   },
   methods: {
     openSurveyRowDialog() {
